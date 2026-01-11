@@ -1,0 +1,13 @@
+{
+  "/_global-error/page": "/_global-error",
+  "/_not-found/page": "/_not-found",
+  "/api/seed-exercises/route": "/api/seed-exercises",
+  "/dashboard/page": "/dashboard",
+  "/exercises/page": "/exercises",
+  "/favicon.ico/route": "/favicon.ico",
+  "/login/page": "/login",
+  "/page": "/",
+  "/signup/page": "/signup",
+  "/workouts/[id]/run/page": "/workouts/[id]/run",
+  "/workouts/page": "/workouts"
+}
