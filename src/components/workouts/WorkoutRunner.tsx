@@ -203,19 +203,30 @@ const WorkoutRunner: React.FC<WorkoutRunnerProps> = ({ workout, onComplete }) =>
             <>
               {/* Exercise Info */}
               <div className="mb-8">
-                <div className="flex justify-between items-start mb-4">
-                  <div>
-                    <h2 className="text-2xl font-bold text-white mb-2">{currentExercise.exerciseName}</h2>
-                    <div className="flex gap-4 text-slate-300">
-                      <span>Set {currentSet} of {totalSets}</span>
-                      <span>•</span>
-                      <span>Reps: {currentExercise.reps}</span>
-                      {currentExercise.weight && <span>• {currentExercise.weight}kg</span>}
-                    </div>
+                {/* Exercise Name + Set & Reps - IN ONE BOX */}
+                <div className="flex items-center gap-6 mb-8 p-6 bg-slate-700/50 rounded-lg border border-slate-600">
+                  <span className="text-4xl font-black text-orange-500">{currentExercise.exerciseName}</span>
+                  <div className="w-1 h-16 bg-slate-600 rounded"></div>
+                  <div className="flex items-center gap-2">
+                    <span className="text-4xl font-black text-orange-500">{currentSet}</span>
+                    <span className="text-lg font-bold text-slate-300">of {totalSets}</span>
                   </div>
-                  <div className="text-right">
-                    <div className="text-sm text-slate-400 mb-1">Exercise {timer.exerciseIndex + 1} of {workout.exercises.length}</div>
+                  <div className="w-1 h-12 bg-slate-600 rounded"></div>
+                  <div className="flex items-center gap-2">
+                    <span className="text-lg font-bold text-slate-300">Reps:</span>
+                    <span className="text-4xl font-black text-orange-500">{currentExercise.reps}</span>
                   </div>
+                  {currentExercise.weight && (
+                    <>
+                      <div className="w-1 h-12 bg-slate-600 rounded"></div>
+                      <span className="text-lg font-bold text-orange-500">{currentExercise.weight}kg</span>
+                    </>
+                  )}
+                </div>
+
+                {/* Exercise Counter */}
+                <div className="text-center mb-6">
+                  <p className="text-sm text-slate-400">Exercise {timer.exerciseIndex + 1} of {workout.exercises.length}</p>
                 </div>
               </div>
 
@@ -269,11 +280,11 @@ const WorkoutRunner: React.FC<WorkoutRunnerProps> = ({ workout, onComplete }) =>
                 <>
                   <div className="flex justify-between text-sm text-slate-400 mb-3">
                     <span>Overall Progress</span>
-                    <span>{progressPercent}%</span>
+                    <span className="font-bold text-blue-400">{progressPercent}%</span>
                   </div>
-                  <div className="w-full bg-slate-700 rounded-full h-2 overflow-hidden mb-4">
+                  <div className="w-full bg-slate-700 rounded-full h-3 overflow-hidden mb-6 border border-slate-600">
                     <div
-                      className="bg-blue-500 h-full transition-all duration-300"
+                      className="bg-gradient-to-r from-blue-500 to-blue-400 h-full transition-all duration-300"
                       style={{ width: `${progressPercent}%` }}
                     />
                   </div>
@@ -281,24 +292,29 @@ const WorkoutRunner: React.FC<WorkoutRunnerProps> = ({ workout, onComplete }) =>
               );
             })()}
             
-            {/* Exercise and Set Progress */}
-            <div className="space-y-2">
+            {/* Exercise and Set Progress - ROW FORMAT */}
+            <div className="space-y-3">
               {workout.exercises.map((exercise, exIndex) => {
                 const exerciseSets = exercise.sets || 3;
                 const isCurrentExercise = exIndex === timer.exerciseIndex;
                 const isCompletedExercise = exIndex < timer.exerciseIndex;
                 
                 return (
-                  <div key={exIndex} className="text-xs">
-                    <div className="flex items-center gap-2 mb-1">
-                      <span className={isCompletedExercise ? 'text-green-400' : isCurrentExercise ? 'text-blue-400' : 'text-slate-500'}>
-                        {isCompletedExercise ? '✓' : isCurrentExercise ? '→' : '○'}
+                  <div key={exIndex}>
+                    <div className="flex items-center gap-2 mb-2">
+                      <span className={`text-lg font-bold ${
+                        isCompletedExercise ? 'text-green-400' : isCurrentExercise ? 'text-blue-400' : 'text-slate-500'
+                      }`}>
+                        {isCompletedExercise ? '✓' : isCurrentExercise ? '▶' : '○'}
                       </span>
-                      <span className={isCompletedExercise ? 'text-green-400' : isCurrentExercise ? 'text-blue-300' : 'text-slate-500'}>
+                      <span className={`text-sm font-semibold ${
+                        isCompletedExercise ? 'text-green-400' : isCurrentExercise ? 'text-blue-300' : 'text-slate-500'
+                      }`}>
                         {exercise.exerciseName}
                       </span>
                     </div>
-                    <div className="flex gap-1 ml-4 flex-wrap">
+                    {/* Sets Row */}
+                    <div className="flex gap-2 ml-6 flex-wrap">
                       {Array.from({ length: exerciseSets }).map((_, setIdx) => {
                         const isCompletedSet = isCompletedExercise || (isCurrentExercise && setIdx < timer.setIndex);
                         const isCurrentSet = isCurrentExercise && setIdx === timer.setIndex;
@@ -306,12 +322,12 @@ const WorkoutRunner: React.FC<WorkoutRunnerProps> = ({ workout, onComplete }) =>
                         return (
                           <div
                             key={setIdx}
-                            className={`w-5 h-5 rounded flex items-center justify-center text-xs font-bold transition-colors ${
+                            className={`w-8 h-8 rounded-lg flex items-center justify-center text-xs font-bold transition-all ${
                               isCompletedSet
-                                ? 'bg-green-500 text-white'
+                                ? 'bg-green-500 text-white shadow-lg shadow-green-500/50'
                                 : isCurrentSet
-                                ? 'bg-blue-500 text-white'
-                                : 'bg-slate-700 text-slate-400'
+                                ? 'bg-blue-500 text-white shadow-lg shadow-blue-500/50 scale-110'
+                                : 'bg-slate-700 text-slate-400 border border-slate-600'
                             }`}
                           >
                             {setIdx + 1}

@@ -1509,101 +1509,135 @@ const WorkoutRunner = ({ workout, onComplete })=>{
                             children: [
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                     className: "mb-8",
-                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                        className: "flex justify-between items-start mb-4",
-                                        children: [
-                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                children: [
-                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
-                                                        className: "text-2xl font-bold text-white mb-2",
-                                                        children: currentExercise_0.exerciseName
-                                                    }, void 0, false, {
-                                                        fileName: "[project]/src/components/workouts/WorkoutRunner.tsx",
-                                                        lineNumber: 223,
-                                                        columnNumber: 21
-                                                    }, ("TURBOPACK compile-time value", void 0)),
-                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                        className: "flex gap-4 text-slate-300",
-                                                        children: [
-                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                                children: [
-                                                                    "Set ",
-                                                                    currentSet,
-                                                                    " of ",
-                                                                    totalSets_0
-                                                                ]
-                                                            }, void 0, true, {
-                                                                fileName: "[project]/src/components/workouts/WorkoutRunner.tsx",
-                                                                lineNumber: 225,
-                                                                columnNumber: 23
-                                                            }, ("TURBOPACK compile-time value", void 0)),
-                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                                children: "•"
-                                                            }, void 0, false, {
-                                                                fileName: "[project]/src/components/workouts/WorkoutRunner.tsx",
-                                                                lineNumber: 226,
-                                                                columnNumber: 23
-                                                            }, ("TURBOPACK compile-time value", void 0)),
-                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                                children: [
-                                                                    "Reps: ",
-                                                                    currentExercise_0.reps
-                                                                ]
-                                                            }, void 0, true, {
-                                                                fileName: "[project]/src/components/workouts/WorkoutRunner.tsx",
-                                                                lineNumber: 227,
-                                                                columnNumber: 23
-                                                            }, ("TURBOPACK compile-time value", void 0)),
-                                                            currentExercise_0.weight && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                                children: [
-                                                                    "• ",
-                                                                    currentExercise_0.weight,
-                                                                    "kg"
-                                                                ]
-                                                            }, void 0, true, {
-                                                                fileName: "[project]/src/components/workouts/WorkoutRunner.tsx",
-                                                                lineNumber: 228,
-                                                                columnNumber: 52
-                                                            }, ("TURBOPACK compile-time value", void 0))
-                                                        ]
-                                                    }, void 0, true, {
-                                                        fileName: "[project]/src/components/workouts/WorkoutRunner.tsx",
-                                                        lineNumber: 224,
-                                                        columnNumber: 21
-                                                    }, ("TURBOPACK compile-time value", void 0))
-                                                ]
-                                            }, void 0, true, {
-                                                fileName: "[project]/src/components/workouts/WorkoutRunner.tsx",
-                                                lineNumber: 222,
-                                                columnNumber: 19
-                                            }, ("TURBOPACK compile-time value", void 0)),
-                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                className: "text-right",
-                                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                    className: "text-sm text-slate-400 mb-1",
+                                    children: [
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                            className: "flex items-center gap-6 mb-8 p-6 bg-slate-700/50 rounded-lg border border-slate-600",
+                                            children: [
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                    className: "text-4xl font-black text-orange-500",
+                                                    children: currentExercise_0.exerciseName
+                                                }, void 0, false, {
+                                                    fileName: "[project]/src/components/workouts/WorkoutRunner.tsx",
+                                                    lineNumber: 223,
+                                                    columnNumber: 19
+                                                }, ("TURBOPACK compile-time value", void 0)),
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                    className: "w-1 h-16 bg-slate-600 rounded"
+                                                }, void 0, false, {
+                                                    fileName: "[project]/src/components/workouts/WorkoutRunner.tsx",
+                                                    lineNumber: 224,
+                                                    columnNumber: 19
+                                                }, ("TURBOPACK compile-time value", void 0)),
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                    className: "flex items-center gap-2",
                                                     children: [
-                                                        "Exercise ",
-                                                        timer.exerciseIndex + 1,
-                                                        " of ",
-                                                        workout.exercises.length
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                            className: "text-4xl font-black text-orange-500",
+                                                            children: currentSet
+                                                        }, void 0, false, {
+                                                            fileName: "[project]/src/components/workouts/WorkoutRunner.tsx",
+                                                            lineNumber: 226,
+                                                            columnNumber: 21
+                                                        }, ("TURBOPACK compile-time value", void 0)),
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                            className: "text-lg font-bold text-slate-300",
+                                                            children: [
+                                                                "of ",
+                                                                totalSets_0
+                                                            ]
+                                                        }, void 0, true, {
+                                                            fileName: "[project]/src/components/workouts/WorkoutRunner.tsx",
+                                                            lineNumber: 227,
+                                                            columnNumber: 21
+                                                        }, ("TURBOPACK compile-time value", void 0))
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/src/components/workouts/WorkoutRunner.tsx",
-                                                    lineNumber: 232,
-                                                    columnNumber: 21
-                                                }, ("TURBOPACK compile-time value", void 0))
-                                            }, void 0, false, {
+                                                    lineNumber: 225,
+                                                    columnNumber: 19
+                                                }, ("TURBOPACK compile-time value", void 0)),
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                    className: "w-1 h-12 bg-slate-600 rounded"
+                                                }, void 0, false, {
+                                                    fileName: "[project]/src/components/workouts/WorkoutRunner.tsx",
+                                                    lineNumber: 229,
+                                                    columnNumber: 19
+                                                }, ("TURBOPACK compile-time value", void 0)),
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                    className: "flex items-center gap-2",
+                                                    children: [
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                            className: "text-lg font-bold text-slate-300",
+                                                            children: "Reps:"
+                                                        }, void 0, false, {
+                                                            fileName: "[project]/src/components/workouts/WorkoutRunner.tsx",
+                                                            lineNumber: 231,
+                                                            columnNumber: 21
+                                                        }, ("TURBOPACK compile-time value", void 0)),
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                            className: "text-4xl font-black text-orange-500",
+                                                            children: currentExercise_0.reps
+                                                        }, void 0, false, {
+                                                            fileName: "[project]/src/components/workouts/WorkoutRunner.tsx",
+                                                            lineNumber: 232,
+                                                            columnNumber: 21
+                                                        }, ("TURBOPACK compile-time value", void 0))
+                                                    ]
+                                                }, void 0, true, {
+                                                    fileName: "[project]/src/components/workouts/WorkoutRunner.tsx",
+                                                    lineNumber: 230,
+                                                    columnNumber: 19
+                                                }, ("TURBOPACK compile-time value", void 0)),
+                                                currentExercise_0.weight && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Fragment"], {
+                                                    children: [
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                            className: "w-1 h-12 bg-slate-600 rounded"
+                                                        }, void 0, false, {
+                                                            fileName: "[project]/src/components/workouts/WorkoutRunner.tsx",
+                                                            lineNumber: 235,
+                                                            columnNumber: 23
+                                                        }, ("TURBOPACK compile-time value", void 0)),
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                            className: "text-lg font-bold text-orange-500",
+                                                            children: [
+                                                                currentExercise_0.weight,
+                                                                "kg"
+                                                            ]
+                                                        }, void 0, true, {
+                                                            fileName: "[project]/src/components/workouts/WorkoutRunner.tsx",
+                                                            lineNumber: 236,
+                                                            columnNumber: 23
+                                                        }, ("TURBOPACK compile-time value", void 0))
+                                                    ]
+                                                }, void 0, true)
+                                            ]
+                                        }, void 0, true, {
+                                            fileName: "[project]/src/components/workouts/WorkoutRunner.tsx",
+                                            lineNumber: 222,
+                                            columnNumber: 17
+                                        }, ("TURBOPACK compile-time value", void 0)),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                            className: "text-center mb-6",
+                                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                className: "text-sm text-slate-400",
+                                                children: [
+                                                    "Exercise ",
+                                                    timer.exerciseIndex + 1,
+                                                    " of ",
+                                                    workout.exercises.length
+                                                ]
+                                            }, void 0, true, {
                                                 fileName: "[project]/src/components/workouts/WorkoutRunner.tsx",
-                                                lineNumber: 231,
+                                                lineNumber: 242,
                                                 columnNumber: 19
                                             }, ("TURBOPACK compile-time value", void 0))
-                                        ]
-                                    }, void 0, true, {
-                                        fileName: "[project]/src/components/workouts/WorkoutRunner.tsx",
-                                        lineNumber: 221,
-                                        columnNumber: 17
-                                    }, ("TURBOPACK compile-time value", void 0))
-                                }, void 0, false, {
+                                        }, void 0, false, {
+                                            fileName: "[project]/src/components/workouts/WorkoutRunner.tsx",
+                                            lineNumber: 241,
+                                            columnNumber: 17
+                                        }, ("TURBOPACK compile-time value", void 0))
+                                    ]
+                                }, void 0, true, {
                                     fileName: "[project]/src/components/workouts/WorkoutRunner.tsx",
                                     lineNumber: 220,
                                     columnNumber: 15
@@ -1616,7 +1650,7 @@ const WorkoutRunner = ({ workout, onComplete })=>{
                                             children: formatTime(timer.elapsed)
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/workouts/WorkoutRunner.tsx",
-                                            lineNumber: 239,
+                                            lineNumber: 248,
                                             columnNumber: 17
                                         }, ("TURBOPACK compile-time value", void 0)),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1624,13 +1658,13 @@ const WorkoutRunner = ({ workout, onComplete })=>{
                                             children: timer.phase === 'exercise' ? 'Exercise Time' : 'Rest Time'
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/workouts/WorkoutRunner.tsx",
-                                            lineNumber: 242,
+                                            lineNumber: 251,
                                             columnNumber: 17
                                         }, ("TURBOPACK compile-time value", void 0))
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/components/workouts/WorkoutRunner.tsx",
-                                    lineNumber: 238,
+                                    lineNumber: 247,
                                     columnNumber: 15
                                 }, ("TURBOPACK compile-time value", void 0)),
                                 timer.phase === 'rest-set' && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1641,7 +1675,7 @@ const WorkoutRunner = ({ workout, onComplete })=>{
                                             children: timer.countdownValue
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/workouts/WorkoutRunner.tsx",
-                                            lineNumber: 249,
+                                            lineNumber: 258,
                                             columnNumber: 19
                                         }, ("TURBOPACK compile-time value", void 0)),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1649,13 +1683,13 @@ const WorkoutRunner = ({ workout, onComplete })=>{
                                             children: "Rest before next set"
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/workouts/WorkoutRunner.tsx",
-                                            lineNumber: 250,
+                                            lineNumber: 259,
                                             columnNumber: 19
                                         }, ("TURBOPACK compile-time value", void 0))
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/components/workouts/WorkoutRunner.tsx",
-                                    lineNumber: 248,
+                                    lineNumber: 257,
                                     columnNumber: 46
                                 }, ("TURBOPACK compile-time value", void 0))
                             ]
@@ -1668,7 +1702,7 @@ const WorkoutRunner = ({ workout, onComplete })=>{
                                     children: timer.countdownValue
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/workouts/WorkoutRunner.tsx",
-                                    lineNumber: 255,
+                                    lineNumber: 264,
                                     columnNumber: 15
                                 }, ("TURBOPACK compile-time value", void 0)),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1676,13 +1710,13 @@ const WorkoutRunner = ({ workout, onComplete })=>{
                                     children: "Rest before next exercise"
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/workouts/WorkoutRunner.tsx",
-                                    lineNumber: 256,
+                                    lineNumber: 265,
                                     columnNumber: 15
                                 }, ("TURBOPACK compile-time value", void 0))
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/components/workouts/WorkoutRunner.tsx",
-                            lineNumber: 254,
+                            lineNumber: 263,
                             columnNumber: 47
                         }, ("TURBOPACK compile-time value", void 0)),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1709,116 +1743,116 @@ const WorkoutRunner = ({ workout, onComplete })=>{
                                                         children: "Overall Progress"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/components/workouts/WorkoutRunner.tsx",
-                                                        lineNumber: 276,
+                                                        lineNumber: 285,
                                                         columnNumber: 21
                                                     }, ("TURBOPACK compile-time value", void 0)),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                        className: "font-bold text-blue-400",
                                                         children: [
                                                             progressPercent,
                                                             "%"
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/src/components/workouts/WorkoutRunner.tsx",
-                                                        lineNumber: 277,
+                                                        lineNumber: 286,
                                                         columnNumber: 21
                                                     }, ("TURBOPACK compile-time value", void 0))
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/components/workouts/WorkoutRunner.tsx",
-                                                lineNumber: 275,
+                                                lineNumber: 284,
                                                 columnNumber: 19
                                             }, ("TURBOPACK compile-time value", void 0)),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                className: "w-full bg-slate-700 rounded-full h-2 overflow-hidden mb-4",
+                                                className: "w-full bg-slate-700 rounded-full h-3 overflow-hidden mb-6 border border-slate-600",
                                                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                    className: "bg-blue-500 h-full transition-all duration-300",
+                                                    className: "bg-gradient-to-r from-blue-500 to-blue-400 h-full transition-all duration-300",
                                                     style: {
                                                         width: `${progressPercent}%`
                                                     }
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/components/workouts/WorkoutRunner.tsx",
-                                                    lineNumber: 280,
+                                                    lineNumber: 289,
                                                     columnNumber: 21
                                                 }, ("TURBOPACK compile-time value", void 0))
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/workouts/WorkoutRunner.tsx",
-                                                lineNumber: 279,
+                                                lineNumber: 288,
                                                 columnNumber: 19
                                             }, ("TURBOPACK compile-time value", void 0))
                                         ]
                                     }, void 0, true);
                                 })(),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                    className: "space-y-2",
+                                    className: "space-y-3",
                                     children: workout.exercises.map((exercise, exIndex)=>{
                                         const exerciseSets = exercise.sets || 3;
                                         const isCurrentExercise = exIndex === timer.exerciseIndex;
                                         const isCompletedExercise = exIndex < timer.exerciseIndex;
                                         return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                            className: "text-xs",
                                             children: [
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                    className: "flex items-center gap-2 mb-1",
+                                                    className: "flex items-center gap-2 mb-2",
                                                     children: [
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                            className: isCompletedExercise ? 'text-green-400' : isCurrentExercise ? 'text-blue-400' : 'text-slate-500',
-                                                            children: isCompletedExercise ? '✓' : isCurrentExercise ? '→' : '○'
+                                                            className: `text-lg font-bold ${isCompletedExercise ? 'text-green-400' : isCurrentExercise ? 'text-blue-400' : 'text-slate-500'}`,
+                                                            children: isCompletedExercise ? '✓' : isCurrentExercise ? '▶' : '○'
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/components/workouts/WorkoutRunner.tsx",
-                                                            lineNumber: 295,
+                                                            lineNumber: 304,
                                                             columnNumber: 23
                                                         }, ("TURBOPACK compile-time value", void 0)),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                            className: isCompletedExercise ? 'text-green-400' : isCurrentExercise ? 'text-blue-300' : 'text-slate-500',
+                                                            className: `text-sm font-semibold ${isCompletedExercise ? 'text-green-400' : isCurrentExercise ? 'text-blue-300' : 'text-slate-500'}`,
                                                             children: exercise.exerciseName
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/components/workouts/WorkoutRunner.tsx",
-                                                            lineNumber: 298,
+                                                            lineNumber: 307,
                                                             columnNumber: 23
                                                         }, ("TURBOPACK compile-time value", void 0))
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/src/components/workouts/WorkoutRunner.tsx",
-                                                    lineNumber: 294,
+                                                    lineNumber: 303,
                                                     columnNumber: 21
                                                 }, ("TURBOPACK compile-time value", void 0)),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                    className: "flex gap-1 ml-4 flex-wrap",
+                                                    className: "flex gap-2 ml-6 flex-wrap",
                                                     children: Array.from({
                                                         length: exerciseSets
                                                     }).map((_, setIdx)=>{
                                                         const isCompletedSet = isCompletedExercise || isCurrentExercise && setIdx < timer.setIndex;
                                                         const isCurrentSet = isCurrentExercise && setIdx === timer.setIndex;
                                                         return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                            className: `w-5 h-5 rounded flex items-center justify-center text-xs font-bold transition-colors ${isCompletedSet ? 'bg-green-500 text-white' : isCurrentSet ? 'bg-blue-500 text-white' : 'bg-slate-700 text-slate-400'}`,
+                                                            className: `w-8 h-8 rounded-lg flex items-center justify-center text-xs font-bold transition-all ${isCompletedSet ? 'bg-green-500 text-white shadow-lg shadow-green-500/50' : isCurrentSet ? 'bg-blue-500 text-white shadow-lg shadow-blue-500/50 scale-110' : 'bg-slate-700 text-slate-400 border border-slate-600'}`,
                                                             children: setIdx + 1
                                                         }, setIdx, false, {
                                                             fileName: "[project]/src/components/workouts/WorkoutRunner.tsx",
-                                                            lineNumber: 308,
+                                                            lineNumber: 318,
                                                             columnNumber: 28
                                                         }, ("TURBOPACK compile-time value", void 0));
                                                     })
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/components/workouts/WorkoutRunner.tsx",
-                                                    lineNumber: 302,
+                                                    lineNumber: 312,
                                                     columnNumber: 21
                                                 }, ("TURBOPACK compile-time value", void 0))
                                             ]
                                         }, exIndex, true, {
                                             fileName: "[project]/src/components/workouts/WorkoutRunner.tsx",
-                                            lineNumber: 293,
+                                            lineNumber: 302,
                                             columnNumber: 22
                                         }, ("TURBOPACK compile-time value", void 0));
                                     })
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/workouts/WorkoutRunner.tsx",
-                                    lineNumber: 288,
+                                    lineNumber: 297,
                                     columnNumber: 13
                                 }, ("TURBOPACK compile-time value", void 0))
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/components/workouts/WorkoutRunner.tsx",
-                            lineNumber: 260,
+                            lineNumber: 269,
                             columnNumber: 11
                         }, ("TURBOPACK compile-time value", void 0)),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1829,7 +1863,7 @@ const WorkoutRunner = ({ workout, onComplete })=>{
                                     children: "Total Time"
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/workouts/WorkoutRunner.tsx",
-                                    lineNumber: 320,
+                                    lineNumber: 330,
                                     columnNumber: 13
                                 }, ("TURBOPACK compile-time value", void 0)),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1837,13 +1871,13 @@ const WorkoutRunner = ({ workout, onComplete })=>{
                                     children: formatTime(totalElapsed.current)
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/workouts/WorkoutRunner.tsx",
-                                    lineNumber: 321,
+                                    lineNumber: 331,
                                     columnNumber: 13
                                 }, ("TURBOPACK compile-time value", void 0))
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/components/workouts/WorkoutRunner.tsx",
-                            lineNumber: 319,
+                            lineNumber: 329,
                             columnNumber: 11
                         }, ("TURBOPACK compile-time value", void 0)),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1856,14 +1890,14 @@ const WorkoutRunner = ({ workout, onComplete })=>{
                                         className: "w-5 h-5"
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/workouts/WorkoutRunner.tsx",
-                                        lineNumber: 327,
+                                        lineNumber: 337,
                                         columnNumber: 17
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     "Start Workout"
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/components/workouts/WorkoutRunner.tsx",
-                                lineNumber: 326,
+                                lineNumber: 336,
                                 columnNumber: 44
                             }, ("TURBOPACK compile-time value", void 0)) : timer.phase === 'rest-set' || timer.phase === 'rest-exercise' ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                                 onClick: handleStartWorkout,
@@ -1873,14 +1907,14 @@ const WorkoutRunner = ({ workout, onComplete })=>{
                                         className: "w-5 h-5"
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/workouts/WorkoutRunner.tsx",
-                                        lineNumber: 330,
+                                        lineNumber: 340,
                                         columnNumber: 17
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     "Start Exercise"
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/components/workouts/WorkoutRunner.tsx",
-                                lineNumber: 329,
+                                lineNumber: 339,
                                 columnNumber: 91
                             }, ("TURBOPACK compile-time value", void 0)) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Fragment"], {
                                 children: [
@@ -1892,20 +1926,20 @@ const WorkoutRunner = ({ workout, onComplete })=>{
                                                 className: "w-5 h-5"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/workouts/WorkoutRunner.tsx",
-                                                lineNumber: 334,
+                                                lineNumber: 344,
                                                 columnNumber: 38
                                             }, ("TURBOPACK compile-time value", void 0)) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$play$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Play$3e$__["Play"], {
                                                 className: "w-5 h-5"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/workouts/WorkoutRunner.tsx",
-                                                lineNumber: 334,
+                                                lineNumber: 344,
                                                 columnNumber: 70
                                             }, ("TURBOPACK compile-time value", void 0)),
                                             timer.isRunning ? 'Pause' : 'Resume'
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/components/workouts/WorkoutRunner.tsx",
-                                        lineNumber: 333,
+                                        lineNumber: 343,
                                         columnNumber: 17
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     timer.phase === 'exercise' && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -1916,14 +1950,14 @@ const WorkoutRunner = ({ workout, onComplete })=>{
                                                 className: "w-5 h-5"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/workouts/WorkoutRunner.tsx",
-                                                lineNumber: 339,
+                                                lineNumber: 349,
                                                 columnNumber: 21
                                             }, ("TURBOPACK compile-time value", void 0)),
                                             "Set Complete"
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/components/workouts/WorkoutRunner.tsx",
-                                        lineNumber: 338,
+                                        lineNumber: 348,
                                         columnNumber: 48
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -1934,21 +1968,21 @@ const WorkoutRunner = ({ workout, onComplete })=>{
                                                 className: "w-5 h-5"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/workouts/WorkoutRunner.tsx",
-                                                lineNumber: 344,
+                                                lineNumber: 354,
                                                 columnNumber: 19
                                             }, ("TURBOPACK compile-time value", void 0)),
                                             "Reset"
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/components/workouts/WorkoutRunner.tsx",
-                                        lineNumber: 343,
+                                        lineNumber: 353,
                                         columnNumber: 17
                                     }, ("TURBOPACK compile-time value", void 0))
                                 ]
                             }, void 0, true)
                         }, void 0, false, {
                             fileName: "[project]/src/components/workouts/WorkoutRunner.tsx",
-                            lineNumber: 325,
+                            lineNumber: 335,
                             columnNumber: 11
                         }, ("TURBOPACK compile-time value", void 0))
                     ]

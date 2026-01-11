@@ -1180,39 +1180,144 @@ const ActivityCalendarView = ({ logs, onSelectLog })=>{
                     const dateStr = new Date(currentDate.getFullYear(), currentDate.getMonth(), day).toDateString();
                     const dayLogs = logsByDate.get(dateStr) || [];
                     const hasWorkout = dayLogs.length > 0;
+                    const multipleWorkouts = dayLogs.length > 1;
                     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                            onClick: ()=>{
-                                if (hasWorkout && dayLogs.length > 0) {
-                                    onSelectLog(dayLogs[0]);
-                                }
-                            },
-                            className: `w-full aspect-square rounded-lg flex flex-col items-center justify-center text-sm font-medium transition ${hasWorkout ? 'bg-green-600 hover:bg-green-700 text-white' : 'bg-slate-700 text-slate-400 hover:bg-slate-600'}`,
-                            children: [
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                        children: [
+                            !multipleWorkouts && hasWorkout && // Single Workout - Regular Button
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                onClick: ()=>onSelectLog(dayLogs[0]),
+                                className: `w-full aspect-square rounded-lg flex flex-col items-start justify-start text-sm font-medium transition p-2 overflow-hidden bg-green-600 hover:bg-green-700 text-white`,
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                        className: "font-bold text-base mb-1",
+                                        children: day
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/components/activities/ActivityCalendarView.tsx",
+                                        lineNumber: 113,
+                                        columnNumber: 19
+                                    }, ("TURBOPACK compile-time value", void 0)),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        className: "text-xs leading-tight",
+                                        children: [
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                className: "truncate",
+                                                children: dayLogs[0].workoutName
+                                            }, void 0, false, {
+                                                fileName: "[project]/src/components/activities/ActivityCalendarView.tsx",
+                                                lineNumber: 117,
+                                                columnNumber: 21
+                                            }, ("TURBOPACK compile-time value", void 0)),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                className: "text-green-100",
+                                                children: [
+                                                    Math.round(dayLogs[0].duration / 60),
+                                                    "min"
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "[project]/src/components/activities/ActivityCalendarView.tsx",
+                                                lineNumber: 118,
+                                                columnNumber: 21
+                                            }, ("TURBOPACK compile-time value", void 0))
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "[project]/src/components/activities/ActivityCalendarView.tsx",
+                                        lineNumber: 116,
+                                        columnNumber: 19
+                                    }, ("TURBOPACK compile-time value", void 0))
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/src/components/activities/ActivityCalendarView.tsx",
+                                lineNumber: 108,
+                                columnNumber: 17
+                            }, ("TURBOPACK compile-time value", void 0)),
+                            multipleWorkouts && // Multiple Workouts - Each row clickable
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: `w-full aspect-square rounded-lg flex flex-col items-start justify-start text-sm font-medium transition p-2 overflow-auto bg-green-600 text-white`,
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                        className: "font-bold text-base mb-1 flex-shrink-0",
+                                        children: day
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/components/activities/ActivityCalendarView.tsx",
+                                        lineNumber: 127,
+                                        columnNumber: 19
+                                    }, ("TURBOPACK compile-time value", void 0)),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        className: "text-xs w-full flex flex-col gap-0.5 flex-1 overflow-y-auto",
+                                        children: [
+                                            dayLogs.slice(0, 3).map((log, idx)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                                    onClick: ()=>onSelectLog(log),
+                                                    className: "text-left px-1 py-0.5 rounded hover:bg-green-700 transition truncate border-b border-green-500/30 last:border-b-0 flex gap-1 items-center",
+                                                    children: [
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                            className: "truncate flex-1",
+                                                            children: log.workoutName.slice(0, 8)
+                                                        }, void 0, false, {
+                                                            fileName: "[project]/src/components/activities/ActivityCalendarView.tsx",
+                                                            lineNumber: 137,
+                                                            columnNumber: 25
+                                                        }, ("TURBOPACK compile-time value", void 0)),
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                            className: "text-green-100 flex-shrink-0",
+                                                            children: [
+                                                                Math.round(log.duration / 60),
+                                                                "m"
+                                                            ]
+                                                        }, void 0, true, {
+                                                            fileName: "[project]/src/components/activities/ActivityCalendarView.tsx",
+                                                            lineNumber: 138,
+                                                            columnNumber: 25
+                                                        }, ("TURBOPACK compile-time value", void 0))
+                                                    ]
+                                                }, idx, true, {
+                                                    fileName: "[project]/src/components/activities/ActivityCalendarView.tsx",
+                                                    lineNumber: 132,
+                                                    columnNumber: 23
+                                                }, ("TURBOPACK compile-time value", void 0))),
+                                            dayLogs.length > 3 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                className: "text-center text-green-100 text-xs py-0.5 border-t border-green-500/30",
+                                                children: [
+                                                    "+",
+                                                    dayLogs.length - 3,
+                                                    " more"
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "[project]/src/components/activities/ActivityCalendarView.tsx",
+                                                lineNumber: 142,
+                                                columnNumber: 23
+                                            }, ("TURBOPACK compile-time value", void 0))
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "[project]/src/components/activities/ActivityCalendarView.tsx",
+                                        lineNumber: 130,
+                                        columnNumber: 19
+                                    }, ("TURBOPACK compile-time value", void 0))
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/src/components/activities/ActivityCalendarView.tsx",
+                                lineNumber: 125,
+                                columnNumber: 17
+                            }, ("TURBOPACK compile-time value", void 0)),
+                            !hasWorkout && // Empty Day
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                disabled: true,
+                                className: `w-full aspect-square rounded-lg flex flex-col items-center justify-center text-sm font-medium transition bg-slate-700 text-slate-400`,
+                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                     children: day
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/activities/ActivityCalendarView.tsx",
-                                    lineNumber: 117,
-                                    columnNumber: 17
-                                }, ("TURBOPACK compile-time value", void 0)),
-                                hasWorkout && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                    className: "text-xs mt-0.5",
-                                    children: "●"
-                                }, void 0, false, {
-                                    fileName: "[project]/src/components/activities/ActivityCalendarView.tsx",
-                                    lineNumber: 118,
-                                    columnNumber: 32
+                                    lineNumber: 156,
+                                    columnNumber: 19
                                 }, ("TURBOPACK compile-time value", void 0))
-                            ]
-                        }, void 0, true, {
-                            fileName: "[project]/src/components/activities/ActivityCalendarView.tsx",
-                            lineNumber: 105,
-                            columnNumber: 15
-                        }, ("TURBOPACK compile-time value", void 0))
-                    }, day, false, {
+                            }, void 0, false, {
+                                fileName: "[project]/src/components/activities/ActivityCalendarView.tsx",
+                                lineNumber: 152,
+                                columnNumber: 17
+                            }, ("TURBOPACK compile-time value", void 0))
+                        ]
+                    }, day, true, {
                         fileName: "[project]/src/components/activities/ActivityCalendarView.tsx",
-                        lineNumber: 104,
+                        lineNumber: 105,
                         columnNumber: 13
                     }, ("TURBOPACK compile-time value", void 0));
                 })

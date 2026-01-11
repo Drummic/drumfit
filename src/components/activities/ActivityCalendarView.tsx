@@ -99,24 +99,63 @@ const ActivityCalendarView: React.FC<ActivityCalendarViewProps> = ({ logs, onSel
 
           const dayLogs = logsByDate.get(dateStr) || [];
           const hasWorkout = dayLogs.length > 0;
+          const multipleWorkouts = dayLogs.length > 1;
 
           return (
             <div key={day}>
-              <button
-                onClick={() => {
-                  if (hasWorkout && dayLogs.length > 0) {
-                    onSelectLog(dayLogs[0]);
-                  }
-                }}
-                className={`w-full aspect-square rounded-lg flex flex-col items-center justify-center text-sm font-medium transition ${
-                  hasWorkout
-                    ? 'bg-green-600 hover:bg-green-700 text-white'
-                    : 'bg-slate-700 text-slate-400 hover:bg-slate-600'
-                }`}
-              >
-                <span>{day}</span>
-                {hasWorkout && <span className="text-xs mt-0.5">●</span>}
-              </button>
+              {!multipleWorkouts && hasWorkout && (
+                // Single Workout - Regular Button
+                <button
+                  onClick={() => onSelectLog(dayLogs[0])}
+                  className={`w-full aspect-square rounded-lg flex flex-col items-start justify-start text-sm font-medium transition p-2 overflow-hidden bg-green-600 hover:bg-green-700 text-white`}
+                >
+                  {/* Day Number */}
+                  <span className="font-bold text-base mb-1">{day}</span>
+                  
+                  {/* Workout - Show name and duration */}
+                  <div className="text-xs leading-tight">
+                    <div className="truncate">{dayLogs[0].workoutName}</div>
+                    <div className="text-green-100">{Math.round(dayLogs[0].duration / 60)}min</div>
+                  </div>
+                </button>
+              )}
+
+              {multipleWorkouts && (
+                // Multiple Workouts - Each row clickable
+                <div className={`w-full aspect-square rounded-lg flex flex-col items-start justify-start text-sm font-medium transition p-2 overflow-auto bg-green-600 text-white`}>
+                  {/* Day Number */}
+                  <span className="font-bold text-base mb-1 flex-shrink-0">{day}</span>
+                  
+                  {/* Workouts Table - Clickable rows */}
+                  <div className="text-xs w-full flex flex-col gap-0.5 flex-1 overflow-y-auto">
+                    {dayLogs.slice(0, 3).map((log, idx) => (
+                      <button
+                        key={idx}
+                        onClick={() => onSelectLog(log)}
+                        className="text-left px-1 py-0.5 rounded hover:bg-green-700 transition truncate border-b border-green-500/30 last:border-b-0 flex gap-1 items-center"
+                      >
+                        <span className="truncate flex-1">{log.workoutName.slice(0, 8)}</span>
+                        <span className="text-green-100 flex-shrink-0">{Math.round(log.duration / 60)}m</span>
+                      </button>
+                    ))}
+                    {dayLogs.length > 3 && (
+                      <div className="text-center text-green-100 text-xs py-0.5 border-t border-green-500/30">
+                        +{dayLogs.length - 3} more
+                      </div>
+                    )}
+                  </div>
+                </div>
+              )}
+
+              {!hasWorkout && (
+                // Empty Day
+                <button
+                  disabled
+                  className={`w-full aspect-square rounded-lg flex flex-col items-center justify-center text-sm font-medium transition bg-slate-700 text-slate-400`}
+                >
+                  <span>{day}</span>
+                </button>
+              )}
             </div>
           );
         })}

@@ -21,8 +21,9 @@ import CreateExerciseModal from '@/components/exercises/CreateExerciseModal';
 import CreateWorkoutModal from '@/components/workouts/CreateWorkoutModal';
 import ExerciseCard from '@/components/exercises/ExerciseCard';
 import WorkoutCard from '@/components/workouts/WorkoutCard';
-import { Plus, Dumbbell, ArrowLeft, Zap } from 'lucide-react';
+import { Plus, Dumbbell, ArrowLeft, Zap, Sparkles } from 'lucide-react';
 import Link from 'next/link';
+import { getSampleWorkouts } from '@/services/sampleWorkoutsService';
 
 /**
  * WorkoutsPage Component
@@ -44,6 +45,8 @@ export default function WorkoutsPage() {
   const [isCreateWorkoutModalOpen, setIsCreateWorkoutModalOpen] = useState(false);
   const [selectedMuscleGroup, setSelectedMuscleGroup] = useState<string | null>(null);
   const [isSeedingExercises, setIsSeedingExercises] = useState(false);
+  const [isLoadingSamples, setIsLoadingSamples] = useState(false);
+  const [isLoadingSampleWorkouts, setIsLoadingSampleWorkouts] = useState(false);
 
   const handleLogout = async () => {
     try {
@@ -53,44 +56,273 @@ export default function WorkoutsPage() {
     }
   };
 
-  const handleSeedExercises = async () => {
+  const handleAddSamples = async () => {
     if (!user) return;
-    setIsSeedingExercises(true);
+    setIsLoadingSamples(true);
     try {
-      const exercises = [
+      // Define all exercises needed for sample workouts
+      const sampleExercises = [
+        // Upper Body
         {
-          name: 'Pushups',
-          description: 'Bodyweight pushups for chest, shoulders, and triceps',
+          name: 'Push-ups',
+          description: 'Standard bodyweight pushups for chest, shoulders, and triceps',
           muscleGroups: ['chest', 'shoulders', 'triceps'],
-          equipment: 'none',
+          equipment: 'none' as const,
           difficulty: 'beginner' as const,
           userId: user.uid,
           aiGenerated: false
         },
         {
-          name: 'Chair Dips',
+          name: 'Pike push-ups (shoulders)',
+          description: 'Shoulder-focused variation of pushups',
+          muscleGroups: ['shoulders', 'triceps'],
+          equipment: 'none' as const,
+          difficulty: 'intermediate' as const,
+          userId: user.uid,
+          aiGenerated: false
+        },
+        {
+          name: 'Chair dips',
           description: 'Tricep dips using a chair for upper body strength',
-          muscleGroups: ['triceps', 'shoulders'],
-          equipment: 'none',
+          muscleGroups: ['triceps', 'shoulders', 'chest'],
+          equipment: 'none' as const,
           difficulty: 'beginner' as const,
           userId: user.uid,
           aiGenerated: false
-        }
+        },
+        {
+          name: 'Slow push-ups (5 sec down)',
+          description: 'Slow eccentrics for strength building',
+          muscleGroups: ['chest', 'shoulders', 'triceps'],
+          equipment: 'none' as const,
+          difficulty: 'intermediate' as const,
+          userId: user.uid,
+          aiGenerated: false
+        },
+        {
+          name: 'Plank',
+          description: 'Core stability and endurance exercise',
+          muscleGroups: ['core', 'shoulders'],
+          equipment: 'none' as const,
+          difficulty: 'beginner' as const,
+          userId: user.uid,
+          aiGenerated: false
+        },
+        {
+          name: 'Leg raises (lying)',
+          description: 'Lower abdominal and hip flexor strengthening',
+          muscleGroups: ['core', 'abs'],
+          equipment: 'none' as const,
+          difficulty: 'intermediate' as const,
+          userId: user.uid,
+          aiGenerated: false
+        },
+        {
+          name: 'Bicycle crunch',
+          description: 'Abdominal and oblique workout',
+          muscleGroups: ['core', 'abs'],
+          equipment: 'none' as const,
+          difficulty: 'beginner' as const,
+          userId: user.uid,
+          aiGenerated: false
+        },
+        {
+          name: 'Hollow hold',
+          description: 'Core and full body tension exercise',
+          muscleGroups: ['core'],
+          equipment: 'none' as const,
+          difficulty: 'intermediate' as const,
+          userId: user.uid,
+          aiGenerated: false
+        },
+        // Lower Body
+        {
+          name: 'Squats',
+          description: 'Full body lower body exercise',
+          muscleGroups: ['quads', 'glutes', 'hamstrings'],
+          equipment: 'none' as const,
+          difficulty: 'beginner' as const,
+          userId: user.uid,
+          aiGenerated: false
+        },
+        {
+          name: 'Bulgarian split squats',
+          description: 'Single-leg squat variation',
+          muscleGroups: ['quads', 'glutes', 'hamstrings'],
+          equipment: 'none' as const,
+          difficulty: 'intermediate' as const,
+          userId: user.uid,
+          aiGenerated: false
+        },
+        {
+          name: 'Hip thrusts (feet elevated)',
+          description: 'Glute and hamstring focused exercise',
+          muscleGroups: ['glutes', 'hamstrings'],
+          equipment: 'none' as const,
+          difficulty: 'intermediate' as const,
+          userId: user.uid,
+          aiGenerated: false
+        },
+        {
+          name: 'Calf raises (slow)',
+          description: 'Calf strengthening with tempo control',
+          muscleGroups: ['calves'],
+          equipment: 'none' as const,
+          difficulty: 'beginner' as const,
+          userId: user.uid,
+          aiGenerated: false
+        },
+        {
+          name: 'Side plank',
+          description: 'Oblique and core stability',
+          muscleGroups: ['core', 'obliques'],
+          equipment: 'none' as const,
+          difficulty: 'beginner' as const,
+          userId: user.uid,
+          aiGenerated: false
+        },
+        {
+          name: 'Reverse crunch',
+          description: 'Lower abdominal focus',
+          muscleGroups: ['core', 'abs'],
+          equipment: 'none' as const,
+          difficulty: 'beginner' as const,
+          userId: user.uid,
+          aiGenerated: false
+        },
+        {
+          name: 'Dead bug',
+          description: 'Core stability and coordination',
+          muscleGroups: ['core'],
+          equipment: 'none' as const,
+          difficulty: 'beginner' as const,
+          userId: user.uid,
+          aiGenerated: false
+        },
+        {
+          name: 'Standing knee raises',
+          description: 'Abdominal and hip flexor strengthening',
+          muscleGroups: ['abs', 'hip flexors'],
+          equipment: 'none' as const,
+          difficulty: 'beginner' as const,
+          userId: user.uid,
+          aiGenerated: false
+        },
       ];
 
-      for (const exercise of exercises) {
+      console.log('🌱 Creating sample exercises...');
+      // Add exercises first
+      for (const exercise of sampleExercises) {
         await addExercise(exercise);
       }
+      console.log('✅ Sample exercises created!');
 
-      alert('✅ Exercises created successfully!');
+      // Now create sample workouts
+      console.log('🏋️ Creating sample workouts...');
+      const sampleWorkouts = getSampleWorkouts();
+      
+      for (const template of sampleWorkouts) {
+        // Map exercises by name
+        const workoutExercises = template.exercises
+          .map((templateEx) => {
+            const foundExercise = exercises.find(
+              (ex) => ex.name.toLowerCase() === templateEx.name.toLowerCase()
+            );
+
+            if (!foundExercise) {
+              console.warn(`⚠️ Exercise "${templateEx.name}" not found`);
+              return null;
+            }
+
+            return {
+              exerciseId: foundExercise.id,
+              exerciseName: foundExercise.name,
+              sets: templateEx.sets,
+              reps: typeof templateEx.reps === 'string' ? parseInt(templateEx.reps) : templateEx.reps,
+            };
+          })
+          .filter((ex) => ex !== null);
+
+        if (workoutExercises.length > 0) {
+          const workoutData = {
+            userId: '',
+            name: template.name,
+            description: template.description,
+            duration: template.duration,
+            exercises: workoutExercises,
+          };
+          await addWorkout(workoutData);
+        }
+      }
+
+      alert('✅ Sample exercises and workouts created successfully!');
     } catch (error) {
-      alert(`❌ Error: ${error instanceof Error ? error.message : 'Failed to create exercises'}`);
+      console.error('❌ Error:', error);
+      alert(`❌ Error: ${error instanceof Error ? error.message : 'Failed to create samples'}`);
     } finally {
-      setIsSeedingExercises(false);
+      setIsLoadingSamples(false);
     }
   };
 
-  // Filter exercises by selected muscle group
+  const handleAddSampleWorkouts = async () => {
+    if (!user || exercises.length === 0) {
+      alert('❌ Please create exercises first');
+      return;
+    }
+    
+    setIsLoadingSampleWorkouts(true);
+    try {
+      console.log('📋 Creating sample workouts...');
+      const sampleWorkouts = getSampleWorkouts();
+      
+      // Only create the short workouts: Upper Body (Short), Lower Body (Short), Core (Short)
+      const shortWorkouts = sampleWorkouts.filter((w) => w.name.includes('Short'));
+      
+      console.log(`Found ${shortWorkouts.length} short workout templates`);
+
+      for (const template of shortWorkouts) {
+        // Map exercises by name
+        const workoutExercises = template.exercises
+          .map((templateEx) => {
+            const foundExercise = exercises.find(
+              (ex) => ex.name.toLowerCase() === templateEx.name.toLowerCase()
+            );
+
+            if (!foundExercise) {
+              console.warn(`⚠️ Exercise "${templateEx.name}" not found`);
+              return null;
+            }
+
+            return {
+              exerciseId: foundExercise.id,
+              exerciseName: foundExercise.name,
+              sets: templateEx.sets,
+              reps: typeof templateEx.reps === 'string' ? parseInt(templateEx.reps) : templateEx.reps,
+            };
+          })
+          .filter((ex) => ex !== null);
+
+        if (workoutExercises.length > 0) {
+          const workoutData = {
+            userId: '',
+            name: template.name,
+            description: template.description,
+            duration: template.duration,
+            exercises: workoutExercises,
+          };
+          console.log(`Creating workout: ${template.name}`);
+          await addWorkout(workoutData);
+        }
+      }
+
+      alert('✅ Sample workouts created successfully!');
+    } catch (error) {
+      console.error('❌ Error:', error);
+      alert(`❌ Error: ${error instanceof Error ? error.message : 'Failed to create sample workouts'}`);
+    } finally {
+      setIsLoadingSampleWorkouts(false);
+    }
+  };
   const filteredExercises =
     selectedMuscleGroup === null
       ? exercises
@@ -166,11 +398,16 @@ export default function WorkoutsPage() {
                 <h2 className="text-xl font-bold text-white">My Exercises</h2>
                 <div className="flex items-center gap-2">
                   <button
-                    onClick={handleSeedExercises}
-                    disabled={isSeedingExercises}
-                    className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition flex items-center gap-2 disabled:opacity-50"
+                    onClick={handleAddSamples}
+                    disabled={isLoadingSamples}
+                    title="Add a set of sample exercises"
+                    className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition flex items-center gap-2 disabled:opacity-50 group relative"
                   >
-                    {isSeedingExercises ? 'Seeding...' : 'Quick Add (Pushups & Dips)'}
+                    <Sparkles className="w-5 h-5" />
+                    {isLoadingSamples ? 'Loading...' : 'Samples'}
+                    <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-slate-900 text-white text-xs rounded whitespace-nowrap opacity-0 group-hover:opacity-100 transition pointer-events-none">
+                      Add a set of sample exercises
+                    </div>
                   </button>
                   <button
                     onClick={() => setIsCreateExerciseModalOpen(true)}
@@ -253,15 +490,29 @@ export default function WorkoutsPage() {
               {/* Workouts Tab */}
               <div className="mb-6 flex justify-between items-center">
                 <h2 className="text-xl font-bold text-white">My Workouts</h2>
-                <button
-                  onClick={() => setIsCreateWorkoutModalOpen(true)}
-                  disabled={exercises.length === 0}
-                  className="px-4 py-2 bg-blue-600 hover:bg-blue-700 disabled:bg-slate-600 disabled:cursor-not-allowed text-white font-medium rounded-lg transition flex items-center gap-2"
-                  title={exercises.length === 0 ? 'Create exercises first' : ''}
-                >
-                  <Plus className="w-5 h-5" />
-                  Create Workout
-                </button>
+                <div className="flex items-center gap-2">
+                  <button
+                    onClick={handleAddSampleWorkouts}
+                    disabled={isLoadingSampleWorkouts || exercises.length === 0}
+                    title="Add sample short workouts (requires exercises)"
+                    className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition flex items-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed group relative"
+                  >
+                    <Sparkles className="w-5 h-5" />
+                    {isLoadingSampleWorkouts ? 'Loading...' : 'Samples'}
+                    <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-slate-900 text-white text-xs rounded whitespace-nowrap opacity-0 group-hover:opacity-100 transition pointer-events-none">
+                      Add sample short workouts
+                    </div>
+                  </button>
+                  <button
+                    onClick={() => setIsCreateWorkoutModalOpen(true)}
+                    disabled={exercises.length === 0}
+                    className="px-4 py-2 bg-blue-600 hover:bg-blue-700 disabled:bg-slate-600 disabled:cursor-not-allowed text-white font-medium rounded-lg transition flex items-center gap-2"
+                    title={exercises.length === 0 ? 'Create exercises first' : ''}
+                  >
+                    <Plus className="w-5 h-5" />
+                    Create Workout
+                  </button>
+                </div>
               </div>
 
               {/* Workouts List */}
