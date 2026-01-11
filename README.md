@@ -1,36 +1,253 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🏋️ Drum Fit - AI-Powered Fitness Tracking
 
-## Getting Started
+An intelligent fitness tracking application built with Next.js 15, React 19, and Firebase. Create exercises, build custom workouts, track your progress with real-time timers, and analyze your fitness data with comprehensive statistics.
 
-First, run the development server:
+**🚀 Live App**: https://drumfit-app.vercel.app
 
+---
+
+## ✨ Features
+
+### 💪 Exercise Management
+- Create and manage custom exercises
+- Organize by muscle groups (chest, back, legs, arms, core, shoulders)
+- Difficulty levels and descriptions
+- Quick-add popular exercises
+
+### 🏋️ Workout Builder
+- Compose workouts from your exercises
+- Configure sets, reps, and weights per exercise
+- Choose workout intensity (short/medium/long)
+- Save and reuse workout templates
+
+### ⏱️ Intelligent Workout Runner
+- Real-time exercise timer with smart progression
+- **Automatic phases**: Exercise → Rest Set → Rest Exercise
+- **3-2-1 Countdown**: Before each exercise (pausable, skippable)
+- **Rest periods**: 30 seconds between sets, 60 seconds between exercises
+- **Smart controls**: Pause/Resume at any time
+- **Progress tracking**: Visual set-by-set progress display
+- **Auto-calculation**: Calories burned based on volume and intensity
+
+### 📊 Activity Tracking
+- **List View**: Chronological workout history
+- **Calendar View**: Visual calendar highlighting workout days
+- **Activity Details**: Click any workout to see stats
+- **Statistics Dashboard**: Comprehensive fitness metrics
+
+### 📈 Statistics & Analytics
+- Total workouts completed
+- Total time spent exercising
+- Total calories burned
+- Current workout streak
+- Weekly and monthly stats
+- Average duration and calories per workout
+- Longest workout recorded
+
+### 🔐 User Authentication
+- Email/password sign-up and login
+- Google Sign-in integration
+- Secure authentication via Firebase
+- Protected routes (requires login)
+
+---
+
+## 🚀 Quick Start
+
+### For Users
+1. Visit https://drumfit-app.vercel.app
+2. Sign up with email or Google
+3. Create exercises and build workouts
+4. Start tracking your fitness journey!
+
+See [QUICK_START.md](./QUICK_START.md) for detailed user guide.
+
+### For Developers
+
+**Local Development:**
 ```bash
+# Clone repository
+git clone https://github.com/Drummic/drumfit.git
+cd drumfit
+
+# Install dependencies
+npm install
+
+# Add environment variables
+# Copy DOCUMENTATION/FIRESTORE_SDK_INFO.txt to .env.local
+
+# Start development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+
+# Open http://localhost:3000
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+**Deployment:**
+See [DEPLOYMENT_GUIDE.md](./DEPLOYMENT_GUIDE.md) for comprehensive setup instructions including:
+- Vercel deployment steps
+- Firebase configuration
+- Environment variables setup
+- Troubleshooting guide
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🛠️ Technology Stack
 
-## Learn More
+### Frontend
+- **Next.js 16.1.1** - React framework with SSR
+- **React 19.2.3** - UI library
+- **TypeScript 5** - Type safety
+- **Tailwind CSS 4** - Styling
+- **Lucide React 0.408.0** - Icon library
 
-To learn more about Next.js, take a look at the following resources:
+### Backend
+- **Firebase 10.7.0** - Backend services
+  - Authentication (Email/Password, Google)
+  - Firestore Database (NoSQL)
+- **React Hook Form 7.48.0** - Form handling
+- **Zod 3.22.0** - Schema validation
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Deployment
+- **Vercel** - Hosting with auto-deployments
+- **GitHub** - Version control
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## 📁 Project Structure
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```
+src/
+├── app/              # Next.js pages
+├── components/       # React components
+├── services/         # Business logic
+├── hooks/           # Custom hooks
+├── context/         # React Context
+├── lib/             # Utilities
+└── types/           # TypeScript types
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+See [DEPLOYMENT_GUIDE.md](./DEPLOYMENT_GUIDE.md#project-structure) for detailed structure.
+
+---
+
+## 🔧 Configuration
+
+### Environment Variables Required
+
+```
+NEXT_PUBLIC_FIREBASE_API_KEY
+NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN
+NEXT_PUBLIC_FIREBASE_PROJECT_ID
+NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET
+NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID
+NEXT_PUBLIC_FIREBASE_APP_ID
+```
+
+Get these from Firebase Console → Project Settings → Your apps
+
+### Firebase Setup
+
+- **Project**: drumfit-3a0c1
+- **Region**: eur3 (Europe)
+- **Database**: Firestore
+- **Plan**: Blaze (Pay-as-you-go)
+
+---
+
+## 📚 Documentation
+
+- **[QUICK_START.md](./QUICK_START.md)** - User and developer quick start
+- **[DEPLOYMENT_GUIDE.md](./DEPLOYMENT_GUIDE.md)** - Complete deployment and setup guide
+- **[FIRESTORE_SETUP.md](./DOCUMENTATION/FIRESTORE_SETUP.md)** - Database configuration
+- **[ARCHITECTURE.md](./DOCUMENTATION/ARCHITECTURE/ARCHITECTURE.md)** - System architecture
+
+---
+
+## 🚀 Deployment
+
+### Vercel (Recommended)
+
+1. Push code to GitHub
+2. Visit https://vercel.com/new
+3. Import `Drummic/drumfit` repository
+4. Add environment variables
+5. Deploy! 🚀
+
+Auto-deploys on every git push to main branch.
+
+### Local Testing
+
+```bash
+npm run build    # Build production bundle
+npm start        # Start production server
+```
+
+---
+
+## 🎯 Roadmap
+
+### Current Features ✅
+- [x] Exercise management
+- [x] Workout builder
+- [x] Workout runner with timer
+- [x] Activity logging
+- [x] Activity tracking (list & calendar)
+- [x] Statistics dashboard
+- [x] User authentication
+- [x] Vercel deployment
+
+### Future Features 🔄
+- [ ] Meal tracking integration
+- [ ] Workout templates/suggestions
+- [ ] AI-powered form feedback
+- [ ] Social features (share workouts)
+- [ ] Advanced analytics & charts
+- [ ] Wearable device integration
+- [ ] Offline mode with sync
+
+---
+
+## 🐛 Troubleshooting
+
+**Firebase auth error?**
+→ Add your domain to Firebase → Authentication → Authorized domains
+
+**App won't deploy?**
+→ Check environment variables in Vercel settings
+
+**Data not loading?**
+→ Verify Firestore security rules and user authentication
+
+See [DEPLOYMENT_GUIDE.md#troubleshooting](./DEPLOYMENT_GUIDE.md#troubleshooting) for more.
+
+---
+
+## 📄 License
+
+Open source - feel free to use and modify!
+
+---
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Test locally
+5. Push and create a pull request
+
+See [QUICK_START.md](./QUICK_START.md#-for-developers) for developer guidelines.
+
+---
+
+## 📞 Support
+
+- **Live App**: https://drumfit-app.vercel.app
+- **GitHub**: https://github.com/Drummic/drumfit
+- **Firebase**: https://firebase.google.com
+
+---
+
+**Built with ❤️ using Next.js, React, and Firebase**
+
+**Last Updated**: January 11, 2026 | **Status**: ✅ Production Ready
