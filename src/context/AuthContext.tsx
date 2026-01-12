@@ -22,6 +22,8 @@ import {
   setPersistence,
   browserLocalPersistence,
   GoogleAuthProvider,
+  FacebookAuthProvider,
+  OAuthProvider,
   signInWithPopup,
 } from 'firebase/auth';
 import { doc, setDoc, getDoc, collection, getDocs, query } from 'firebase/firestore';
@@ -117,53 +119,18 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
 
   /**
    * Sign up with email and password
+   * DISABLED - Public signup not allowed
+   * Only pre-created users in Firebase can login via email/password
    */
   const signup = async (email: string, password: string, name: string): Promise<void> => {
     try {
       setError(null);
       setLoading(true);
 
-      console.log('Starting email/password signup for:', email);
-
-      // Check user limit (evaluation phase - max 5 users)
-      console.log('Checking user limit...');
-      const usersSnapshot = await getDocs(query(collection(db, 'users')));
-      const userCount = usersSnapshot.size;
-
-      console.log('Current user count:', userCount, 'Max users:', MAX_USERS);
-
-      if (userCount >= MAX_USERS) {
-        const errorMsg = `User limit reached. This app is in evaluation phase and limited to ${MAX_USERS} users.`;
-        setError(errorMsg);
-        throw new Error(errorMsg);
-      }
-
-      console.log('User limit check passed, creating Firebase auth user...');
-
-      // Create Firebase auth user
-      const result = await createUserWithEmailAndPassword(auth, email, password);
-      const firebaseUserData = result.user;
-
-      console.log('Firebase auth user created:', firebaseUserData.uid);
-
-      // Create Firestore user document
-      const newUser: User = {
-        uid: firebaseUserData.uid,
-        email,
-        name,
-        createdAt: new Date().toISOString(),
-        updatedAt: new Date().toISOString(),
-      };
-
-      console.log('Creating Firestore user document...');
-
-      const userDocRef = doc(db, 'users', firebaseUserData.uid);
-      await setDoc(userDocRef, newUser);
-
-      console.log('Firestore user document created successfully');
-
-      setUser(newUser);
-      setFirebaseUser(firebaseUserData);
+      const errorMsg = 'Email/password signup is disabled. Please use Google or Apple Sign-In instead.';
+      console.log('Signup attempt blocked:', errorMsg);
+      setError(errorMsg);
+      throw new Error(errorMsg);
     } catch (err) {
       console.error('Signup error:', err);
       const errorMessage = err instanceof Error ? err.message : 'Signup failed';
@@ -207,6 +174,84 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
       const errorMessage = err instanceof Error ? err.message : 'Logout failed';
       setError(errorMessage);
       throw err;
+    }
+  };
+
+  /**
+   * Sign in with Apple
+   */
+  const signInWithApple = async (): Promise<void> => {
+    try {
+      setError(null);
+      setLoading(true);
+
+      const provider = new OAuthProvider('apple.com');
+      provider.addScope('email');
+      provider.addScope('name');
+
+      const result = await signInWithPopup(auth, provider);
+      const firebaseUserData = result.user;
+
+      console.log('Apple sign-in successful, user:', firebaseUserData.uid);
+
+      // Check if user exists in Firestore
+      const userDocRef = doc(db, 'users', firebaseUserData.uid);
+      const userDocSnap = await getDoc(userDocRef);
+
+      if (!userDocSnap.exists()) {
+        console.log('User document does not exist, checking limit...');
+        
+        try {
+          // Check user limit before creating new user (evaluation phase)
+          const usersSnapshot = await getDocs(query(collection(db, 'users')));
+          const userCount = usersSnapshot.size;
+
+          console.log('Current user count:', userCount, 'Max users:', MAX_USERS);
+
+          if (userCount >= MAX_USERS) {
+            // Delete the Firebase auth user that was just created
+            await firebaseUserData.delete();
+            const errorMsg = `User limit reached. This app is in evaluation phase and limited to ${MAX_USERS} users.`;
+            setError(errorMsg);
+            throw new Error(errorMsg);
+          }
+        } catch (limitCheckError) {
+          // If it's a limit error, re-throw it
+          if (limitCheckError instanceof Error && limitCheckError.message.includes('User limit reached')) {
+            throw limitCheckError;
+          }
+          // For other errors (permission issues), log warning but proceed
+          console.warn('Could not check user limit:', limitCheckError);
+        }
+
+        // Create new user document
+        const newUser: User = {
+          uid: firebaseUserData.uid,
+          email: firebaseUserData.email || '',
+          name: firebaseUserData.displayName || '',
+          profilePicture: firebaseUserData.photoURL || undefined,
+          createdAt: new Date().toISOString(),
+          updatedAt: new Date().toISOString(),
+        };
+
+        console.log('Creating user document:', newUser);
+        await setDoc(userDocRef, newUser);
+        console.log('User document created successfully');
+        
+        setUser(newUser);
+      } else {
+        console.log('User document exists');
+        setUser(userDocSnap.data() as User);
+      }
+
+      setFirebaseUser(firebaseUserData);
+    } catch (err) {
+      console.error('Apple sign-in error:', err);
+      const errorMessage = err instanceof Error ? err.message : 'Apple sign-in failed';
+      setError(errorMessage);
+      throw err;
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -288,6 +333,84 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
   };
 
   /**
+   * Sign in with Facebook
+   */
+  const signInWithFacebook = async (): Promise<void> => {
+    try {
+      setError(null);
+      setLoading(true);
+
+      const provider = new FacebookAuthProvider();
+      provider.addScope('email');
+      provider.addScope('public_profile');
+
+      const result = await signInWithPopup(auth, provider);
+      const firebaseUserData = result.user;
+
+      console.log('Facebook sign-in successful, user:', firebaseUserData.uid);
+
+      // Check if user exists in Firestore
+      const userDocRef = doc(db, 'users', firebaseUserData.uid);
+      const userDocSnap = await getDoc(userDocRef);
+
+      if (!userDocSnap.exists()) {
+        console.log('User document does not exist, checking limit...');
+        
+        try {
+          // Check user limit before creating new user (evaluation phase)
+          const usersSnapshot = await getDocs(query(collection(db, 'users')));
+          const userCount = usersSnapshot.size;
+
+          console.log('Current user count:', userCount, 'Max users:', MAX_USERS);
+
+          if (userCount >= MAX_USERS) {
+            // Delete the Firebase auth user that was just created
+            await firebaseUserData.delete();
+            const errorMsg = `User limit reached. This app is in evaluation phase and limited to ${MAX_USERS} users.`;
+            setError(errorMsg);
+            throw new Error(errorMsg);
+          }
+        } catch (limitCheckError) {
+          // If it's a limit error, re-throw it
+          if (limitCheckError instanceof Error && limitCheckError.message.includes('User limit reached')) {
+            throw limitCheckError;
+          }
+          // For other errors (permission issues), log warning but proceed
+          console.warn('Could not check user limit:', limitCheckError);
+        }
+
+        // Create new user document
+        const newUser: User = {
+          uid: firebaseUserData.uid,
+          email: firebaseUserData.email || '',
+          name: firebaseUserData.displayName || '',
+          profilePicture: firebaseUserData.photoURL || undefined,
+          createdAt: new Date().toISOString(),
+          updatedAt: new Date().toISOString(),
+        };
+
+        console.log('Creating user document:', newUser);
+        await setDoc(userDocRef, newUser);
+        console.log('User document created successfully');
+        
+        setUser(newUser);
+      } else {
+        console.log('User document exists');
+        setUser(userDocSnap.data() as User);
+      }
+
+      setFirebaseUser(firebaseUserData);
+    } catch (err) {
+      console.error('Facebook sign-in error:', err);
+      const errorMessage = err instanceof Error ? err.message : 'Facebook sign-in failed';
+      setError(errorMessage);
+      throw err;
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  /**
    * Update user profile
    */
   const updateProfile = async (updates: Partial<User>): Promise<void> => {
@@ -322,6 +445,8 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
     logout,
     updateProfile,
     signInWithGoogle,
+    signInWithApple,
+    signInWithFacebook,
     isAuthenticated: !!firebaseUser,
   };
 

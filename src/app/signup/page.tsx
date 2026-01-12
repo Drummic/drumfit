@@ -13,85 +13,49 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { useForm } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
-import * as z from 'zod';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { useAuth } from '@/context/AuthContext';
 import { UserPlus } from 'lucide-react';
 
 /**
- * Zod schema for signup form validation
- */
-const signupSchema = z
-  .object({
-    name: z.string().min(2, 'Name must be at least 2 characters'),
-    email: z.string().email('Invalid email address'),
-    password: z.string().min(6, 'Password must be at least 6 characters'),
-    confirmPassword: z.string(),
-  })
-  .refine((data) => data.password === data.confirmPassword, {
-    message: "Passwords don't match",
-    path: ['confirmPassword'],
-  });
-
-type SignupFormData = z.infer<typeof signupSchema>;
-
-/**
- * SignupPage Component
+ * SignupPage Component - OAuth-only authentication
  */
 export default function SignupPage() {
   const router = useRouter();
-  const { signup, signInWithGoogle, isAuthenticated } = useAuth();
-  const [generalError, setGeneralError] = useState<string | null>(null);
+  const { signInWithGoogle, signInWithApple, isAuthenticated } = useAuth();
+  const [error, setError] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(false);
-
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-    reset,
-  } = useForm<SignupFormData>({
-    resolver: zodResolver(signupSchema),
-  });
-
-  /**
-   * Handle signup form submission
-   */
-  const onSubmit = async (data: SignupFormData) => {
-    try {
-      setGeneralError(null);
-      setIsLoading(true);
-
-      await signup(data.email, data.password, data.name);
-
-      // Reset form on success
-      reset();
-
-      // Redirect to dashboard
-      router.push('/dashboard');
-    } catch (error) {
-      const message = error instanceof Error ? error.message : 'Signup failed. Please try again.';
-      setGeneralError(message);
-    } finally {
-      setIsLoading(false);
-    }
-  };
 
   /**
    * Handle Google sign-in
    */
   const handleGoogleSignIn = async () => {
     try {
-      setGeneralError(null);
+      setError(null);
       setIsLoading(true);
       await signInWithGoogle();
       router.push('/dashboard');
-    } catch (error) {
-      const message =
-        error instanceof Error ? error.message : 'Google sign-in failed. Please try again.';
-      setGeneralError(message);
+    } catch (err) {
+      const message = err instanceof Error ? err.message : 'Google sign-in failed. Please try again.';
+      setError(message);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  /**
+   * Handle Apple sign-in
+   */
+  const handleAppleSignIn = async () => {
+    try {
+      setError(null);
+      setIsLoading(true);
+      await signInWithApple();
+      router.push('/dashboard');
+    } catch (err) {
+      const message = err instanceof Error ? err.message : 'Apple sign-in failed. Please try again.';
+      setError(message);
     } finally {
       setIsLoading(false);
     }
@@ -118,115 +82,20 @@ export default function SignupPage() {
           <p className="text-slate-400">AI-Powered Fitness Training</p>
         </div>
 
-        {/* Signup Form Card */}
+        {/* OAuth Sign-in Card */}
         <div className="bg-slate-800 rounded-lg shadow-xl p-8">
-          <h2 className="text-2xl font-bold text-white mb-6">Create Your Account</h2>
+          <h2 className="text-2xl font-bold text-white mb-6">Sign In to Drum Fit</h2>
 
           {/* Error Message */}
-          {generalError && (
-            <div className="mb-4 p-4 bg-red-500/10 border border-red-500/20 rounded-lg text-red-400 text-sm">
-              {generalError}
+          {error && (
+            <div className="mb-6 p-4 bg-red-500/10 border border-red-500/20 rounded-lg text-red-400 text-sm">
+              {error}
             </div>
           )}
 
-          {/* Signup Form */}
-          <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
-            {/* Name Input */}
-            <div>
-              <label htmlFor="name" className="block text-sm font-medium text-slate-200 mb-2">
-                Full Name
-              </label>
-              <input
-                {...register('name')}
-                type="text"
-                id="name"
-                placeholder="John Doe"
-                className="w-full px-4 py-2 bg-slate-700 border border-slate-600 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:border-green-500 focus:ring-2 focus:ring-green-500/20 transition"
-                disabled={isLoading}
-              />
-              {errors.name && <p className="mt-1 text-sm text-red-400">{errors.name.message}</p>}
-            </div>
-
-            {/* Email Input */}
-            <div>
-              <label htmlFor="email" className="block text-sm font-medium text-slate-200 mb-2">
-                Email Address
-              </label>
-              <input
-                {...register('email')}
-                type="email"
-                id="email"
-                placeholder="you@example.com"
-                className="w-full px-4 py-2 bg-slate-700 border border-slate-600 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:border-green-500 focus:ring-2 focus:ring-green-500/20 transition"
-                disabled={isLoading}
-              />
-              {errors.email && <p className="mt-1 text-sm text-red-400">{errors.email.message}</p>}
-            </div>
-
-            {/* Password Input */}
-            <div>
-              <label htmlFor="password" className="block text-sm font-medium text-slate-200 mb-2">
-                Password
-              </label>
-              <input
-                {...register('password')}
-                type="password"
-                id="password"
-                placeholder="••••••••"
-                className="w-full px-4 py-2 bg-slate-700 border border-slate-600 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:border-green-500 focus:ring-2 focus:ring-green-500/20 transition"
-                disabled={isLoading}
-              />
-              {errors.password && (
-                <p className="mt-1 text-sm text-red-400">{errors.password.message}</p>
-              )}
-            </div>
-
-            {/* Confirm Password Input */}
-            <div>
-              <label
-                htmlFor="confirmPassword"
-                className="block text-sm font-medium text-slate-200 mb-2"
-              >
-                Confirm Password
-              </label>
-              <input
-                {...register('confirmPassword')}
-                type="password"
-                id="confirmPassword"
-                placeholder="••••••••"
-                className="w-full px-4 py-2 bg-slate-700 border border-slate-600 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:border-green-500 focus:ring-2 focus:ring-green-500/20 transition"
-                disabled={isLoading}
-              />
-              {errors.confirmPassword && (
-                <p className="mt-1 text-sm text-red-400">{errors.confirmPassword.message}</p>
-              )}
-            </div>
-
-            {/* Submit Button */}
-            <button
-              type="submit"
-              disabled={isLoading}
-              className="w-full mt-6 px-4 py-2 bg-green-600 hover:bg-green-700 disabled:bg-slate-600 disabled:cursor-not-allowed text-white font-medium rounded-lg transition duration-200 flex items-center justify-center gap-2"
-            >
-              {isLoading ? (
-                <>
-                  <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
-                  Creating Account...
-                </>
-              ) : (
-                <>
-                  <UserPlus className="w-4 h-4" />
-                  Sign Up
-                </>
-              )}
-            </button>
-          </form>
-
-          {/* Divider */}
-          <div className="my-6 flex items-center">
-            <div className="flex-1 border-t border-slate-600"></div>
-            <span className="px-3 text-slate-400 text-sm">Or continue with</span>
-            <div className="flex-1 border-t border-slate-600"></div>
+          {/* Info Message */}
+          <div className="mb-6 p-4 bg-blue-900/20 border border-blue-600 rounded-lg">
+            <p className="text-blue-300 text-sm">Sign in securely using your Google or Apple account. No password needed.</p>
           </div>
 
           {/* Google Sign-in Button */}
@@ -234,7 +103,7 @@ export default function SignupPage() {
             type="button"
             onClick={handleGoogleSignIn}
             disabled={isLoading}
-            className="w-full px-4 py-2 bg-white hover:bg-gray-100 disabled:bg-gray-300 disabled:cursor-not-allowed text-gray-900 font-medium rounded-lg transition duration-200 flex items-center justify-center gap-2"
+            className="w-full px-4 py-3 bg-white hover:bg-gray-100 disabled:bg-gray-300 disabled:cursor-not-allowed text-gray-900 font-medium rounded-lg transition duration-200 flex items-center justify-center gap-3 mb-4"
           >
             <svg className="w-5 h-5" viewBox="0 0 24 24">
               <path
@@ -254,28 +123,42 @@ export default function SignupPage() {
                 d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"
               />
             </svg>
-            Sign up with Google
+            {isLoading ? 'Signing in...' : 'Sign in with Google'}
+          </button>
+
+          {/* Apple Sign-in Button */}
+          <button
+            type="button"
+            onClick={handleAppleSignIn}
+            disabled={isLoading}
+            className="w-full px-4 py-3 bg-black hover:bg-gray-900 disabled:bg-gray-700 disabled:cursor-not-allowed text-white font-medium rounded-lg transition duration-200 flex items-center justify-center gap-3 mb-6"
+          >
+            <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M17.05 13.5c-.91 2.83.119 5.3 2.382 6.39 1.715.822 3.712.543 4.918-.882-1.298 1.883-3.42 2.701-5.415 2.701-3.59 0-6.5-2.91-6.5-6.5s2.91-6.5 6.5-6.5c1.995 0 4.117.818 5.415 2.701-1.206-1.425-3.203-1.704-4.918-.882-2.263 1.09-3.292 3.56-2.382 6.39z"/>
+              <path d="M7.5 4c-1.378 0-2.5 1.122-2.5 2.5v11c0 1.378 1.122 2.5 2.5 2.5h3.5V4H7.5z"/>
+            </svg>
+            {isLoading ? 'Signing in...' : 'Sign in with Apple'}
           </button>
 
           {/* Divider */}
           <div className="my-6 flex items-center">
             <div className="flex-1 border-t border-slate-600"></div>
-            <span className="px-3 text-slate-400 text-sm">Already have an account?</span>
+            <span className="px-3 text-slate-400 text-sm">Or</span>
             <div className="flex-1 border-t border-slate-600"></div>
           </div>
 
           {/* Login Link */}
           <Link
             href="/login"
-            className="w-full px-4 py-2 bg-slate-700 hover:bg-slate-600 text-white font-medium rounded-lg transition duration-200 text-center block"
+            className="w-full px-4 py-3 bg-slate-700 hover:bg-slate-600 text-white font-medium rounded-lg transition duration-200 text-center block"
           >
-            Sign In
+            Sign In with Email
           </Link>
         </div>
 
         {/* Footer */}
         <p className="text-center text-slate-400 text-sm mt-8">
-          By signing up, you agree to our Terms of Service and Privacy Policy
+          By signing in, you agree to our Terms of Service and Privacy Policy
         </p>
       </div>
     </div>

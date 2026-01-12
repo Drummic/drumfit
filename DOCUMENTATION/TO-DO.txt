@@ -1,0 +1,13 @@
+1. Sample generation just 1 time per user. 
+2. We need a functionality to plan/schedule workouts 
+3. We need sample for meals 
+4. we need a calorie calculator 
+5. we need linked youtube sample videos which we will do by our own later 
+6. we need AI to: 1. generate a plan for a description a user enters 
+7. we need a progress tracker with picture before and after and other features 
+8. we need a free and a payed version 
+
+
+Backlog
+1. in the mobile version the calendar is not suitable we would need 
+   a google styled one

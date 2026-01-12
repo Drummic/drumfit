@@ -1,6 +1,7 @@
 {
   "/_global-error/page": "app/_global-error/page.js",
   "/_not-found/page": "app/_not-found/page.js",
+  "/api/check-user-limit/route": "app/api/check-user-limit/route.js",
   "/api/seed-exercises/route": "app/api/seed-exercises/route.js",
   "/dashboard/page": "app/dashboard/page.js",
   "/exercises/page": "app/exercises/page.js",

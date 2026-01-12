@@ -100,6 +100,9 @@ var _s = __turbopack_context__.k.signature(), _s1 = __turbopack_context__.k.sign
 ;
 ;
 /**
+ * Max Number of users allowed during evaluation phase
+ */ const MAX_USERS = 5;
+/**
  * AuthContext - Provides authentication state and methods to app
  */ const AuthContext = /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["createContext"])(undefined);
 const AuthProvider = ({ children })=>{
@@ -133,25 +136,41 @@ const AuthProvider = ({ children })=>{
                             if (userDocSnap.exists()) {
                                 const userData = userDocSnap.data();
                                 setUser(userData);
+                                setFirebaseUser(firebaseUserData);
                             } else {
-                                // User logged in but no Firestore document yet
-                                // This happens after signup but before profile creation
-                                setUser({
-                                    uid: firebaseUserData.uid,
-                                    email: firebaseUserData.email || '',
-                                    name: '',
-                                    createdAt: new Date().toISOString(),
-                                    updatedAt: new Date().toISOString()
-                                });
+                                // User has Firebase auth but NO Firestore document
+                                // Wait a moment in case signup is still in progress
+                                await new Promise({
+                                    "AuthProvider.useEffect.unsubscribe": (resolve)=>setTimeout(resolve, 1000)
+                                }["AuthProvider.useEffect.unsubscribe"]);
+                                // Check again
+                                const retrySnap = await (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$firebase$2f$firestore$2f$dist$2f$index$2e$esm2017$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["getDoc"])(userDocRef);
+                                if (retrySnap.exists()) {
+                                    const userData_0 = retrySnap.data();
+                                    setUser(userData_0);
+                                    setFirebaseUser(firebaseUserData);
+                                } else {
+                                    // Still no document after retry - log them out
+                                    console.warn('User has no Firestore document - logging out');
+                                    await (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$firebase$2f$auth$2f$dist$2f$esm2017$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["signOut"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$firebase$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["auth"]);
+                                    setUser(null);
+                                    setFirebaseUser(null);
+                                    setError('User profile not found. Please signup again.');
+                                }
                             }
-                            setFirebaseUser(firebaseUserData);
                         } else {
                             setUser(null);
                             setFirebaseUser(null);
                         }
                     } catch (err_0) {
-                        console.error('Error fetching user data:', err_0);
-                        setError(err_0 instanceof Error ? err_0.message : 'Unknown error');
+                        // Suppress "Missing or insufficient permissions" errors during cleanup
+                        // These occur when a user is being deleted and auth/firestore states are out of sync
+                        if (err_0 instanceof Error && err_0.message.includes('Missing or insufficient permissions')) {
+                            console.debug('Permission check during auth state change (expected during cleanup)');
+                        } else {
+                            console.error('Error fetching user data:', err_0);
+                            setError(err_0 instanceof Error ? err_0.message : 'Unknown error');
+                        }
                     } finally{
                         setLoading(false);
                     }
@@ -164,26 +183,18 @@ const AuthProvider = ({ children })=>{
     }["AuthProvider.useEffect"], []);
     /**
    * Sign up with email and password
+   * DISABLED - Public signup not allowed
+   * Only pre-created users in Firebase can login via email/password
    */ const signup = async (email, password, name)=>{
         try {
             setError(null);
             setLoading(true);
-            // Create Firebase auth user
-            const result = await (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$firebase$2f$auth$2f$dist$2f$esm2017$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["createUserWithEmailAndPassword"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$firebase$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["auth"], email, password);
-            const firebaseUserData_0 = result.user;
-            // Create Firestore user document
-            const newUser = {
-                uid: firebaseUserData_0.uid,
-                email,
-                name,
-                createdAt: new Date().toISOString(),
-                updatedAt: new Date().toISOString()
-            };
-            const userDocRef_0 = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$firebase$2f$firestore$2f$dist$2f$index$2e$esm2017$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["doc"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$firebase$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["db"], 'users', firebaseUserData_0.uid);
-            await (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$firebase$2f$firestore$2f$dist$2f$index$2e$esm2017$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["setDoc"])(userDocRef_0, newUser);
-            setUser(newUser);
-            setFirebaseUser(firebaseUserData_0);
+            const errorMsg = 'Email/password signup is disabled. Please use Google or Apple Sign-In instead.';
+            console.log('Signup attempt blocked:', errorMsg);
+            setError(errorMsg);
+            throw new Error(errorMsg);
         } catch (err_1) {
+            console.error('Signup error:', err_1);
             const errorMessage = err_1 instanceof Error ? err_1.message : 'Signup failed';
             setError(errorMessage);
             throw err_1;
@@ -197,8 +208,8 @@ const AuthProvider = ({ children })=>{
         try {
             setError(null);
             setLoading(true);
-            const result_0 = await (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$firebase$2f$auth$2f$dist$2f$esm2017$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["signInWithEmailAndPassword"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$firebase$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["auth"], email_0, password_0);
-            setFirebaseUser(result_0.user);
+            const result = await (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$firebase$2f$auth$2f$dist$2f$esm2017$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["signInWithEmailAndPassword"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$firebase$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["auth"], email_0, password_0);
+            setFirebaseUser(result.user);
         // User data will be fetched by onAuthStateChanged listener
         } catch (err_2) {
             const errorMessage_0 = err_2 instanceof Error ? err_2.message : 'Login failed';
@@ -223,21 +234,107 @@ const AuthProvider = ({ children })=>{
         }
     };
     /**
+   * Sign in with Apple
+   */ const signInWithApple = async ()=>{
+        try {
+            setError(null);
+            setLoading(true);
+            const provider = new __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$firebase$2f$auth$2f$dist$2f$esm2017$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["OAuthProvider"]('apple.com');
+            provider.addScope('email');
+            provider.addScope('name');
+            const result_0 = await (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$firebase$2f$auth$2f$dist$2f$esm2017$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["signInWithPopup"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$firebase$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["auth"], provider);
+            const firebaseUserData_0 = result_0.user;
+            console.log('Apple sign-in successful, user:', firebaseUserData_0.uid);
+            // Check if user exists in Firestore
+            const userDocRef_0 = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$firebase$2f$firestore$2f$dist$2f$index$2e$esm2017$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["doc"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$firebase$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["db"], 'users', firebaseUserData_0.uid);
+            const userDocSnap_0 = await (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$firebase$2f$firestore$2f$dist$2f$index$2e$esm2017$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["getDoc"])(userDocRef_0);
+            if (!userDocSnap_0.exists()) {
+                console.log('User document does not exist, checking limit...');
+                try {
+                    // Check user limit before creating new user (evaluation phase)
+                    const usersSnapshot = await (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$firebase$2f$firestore$2f$dist$2f$index$2e$esm2017$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["getDocs"])((0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$firebase$2f$firestore$2f$dist$2f$index$2e$esm2017$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["query"])((0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$firebase$2f$firestore$2f$dist$2f$index$2e$esm2017$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["collection"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$firebase$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["db"], 'users')));
+                    const userCount = usersSnapshot.size;
+                    console.log('Current user count:', userCount, 'Max users:', MAX_USERS);
+                    if (userCount >= MAX_USERS) {
+                        // Delete the Firebase auth user that was just created
+                        await firebaseUserData_0.delete();
+                        const errorMsg_0 = `User limit reached. This app is in evaluation phase and limited to ${MAX_USERS} users.`;
+                        setError(errorMsg_0);
+                        throw new Error(errorMsg_0);
+                    }
+                } catch (limitCheckError) {
+                    // If it's a limit error, re-throw it
+                    if (limitCheckError instanceof Error && limitCheckError.message.includes('User limit reached')) {
+                        throw limitCheckError;
+                    }
+                    // For other errors (permission issues), log warning but proceed
+                    console.warn('Could not check user limit:', limitCheckError);
+                }
+                // Create new user document
+                const newUser = {
+                    uid: firebaseUserData_0.uid,
+                    email: firebaseUserData_0.email || '',
+                    name: firebaseUserData_0.displayName || '',
+                    profilePicture: firebaseUserData_0.photoURL || undefined,
+                    createdAt: new Date().toISOString(),
+                    updatedAt: new Date().toISOString()
+                };
+                console.log('Creating user document:', newUser);
+                await (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$firebase$2f$firestore$2f$dist$2f$index$2e$esm2017$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["setDoc"])(userDocRef_0, newUser);
+                console.log('User document created successfully');
+                setUser(newUser);
+            } else {
+                console.log('User document exists');
+                setUser(userDocSnap_0.data());
+            }
+            setFirebaseUser(firebaseUserData_0);
+        } catch (err_4) {
+            console.error('Apple sign-in error:', err_4);
+            const errorMessage_2 = err_4 instanceof Error ? err_4.message : 'Apple sign-in failed';
+            setError(errorMessage_2);
+            throw err_4;
+        } finally{
+            setLoading(false);
+        }
+    };
+    /**
    * Sign in with Google
    */ const signInWithGoogle = async ()=>{
         try {
             setError(null);
             setLoading(true);
-            const provider = new __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$firebase$2f$auth$2f$dist$2f$esm2017$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["GoogleAuthProvider"]();
-            provider.setCustomParameters({
+            const provider_0 = new __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$firebase$2f$auth$2f$dist$2f$esm2017$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["GoogleAuthProvider"]();
+            provider_0.setCustomParameters({
                 prompt: 'select_account'
             });
-            const result_1 = await (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$firebase$2f$auth$2f$dist$2f$esm2017$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["signInWithPopup"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$firebase$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["auth"], provider);
+            const result_1 = await (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$firebase$2f$auth$2f$dist$2f$esm2017$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["signInWithPopup"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$firebase$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["auth"], provider_0);
             const firebaseUserData_1 = result_1.user;
+            console.log('Google sign-in successful, user:', firebaseUserData_1.uid);
             // Check if user exists in Firestore
             const userDocRef_1 = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$firebase$2f$firestore$2f$dist$2f$index$2e$esm2017$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["doc"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$firebase$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["db"], 'users', firebaseUserData_1.uid);
-            const userDocSnap_0 = await (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$firebase$2f$firestore$2f$dist$2f$index$2e$esm2017$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["getDoc"])(userDocRef_1);
-            if (!userDocSnap_0.exists()) {
+            const userDocSnap_1 = await (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$firebase$2f$firestore$2f$dist$2f$index$2e$esm2017$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["getDoc"])(userDocRef_1);
+            if (!userDocSnap_1.exists()) {
+                console.log('User document does not exist, checking limit...');
+                try {
+                    // Check user limit before creating new user (evaluation phase)
+                    const usersSnapshot_0 = await (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$firebase$2f$firestore$2f$dist$2f$index$2e$esm2017$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["getDocs"])((0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$firebase$2f$firestore$2f$dist$2f$index$2e$esm2017$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["query"])((0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$firebase$2f$firestore$2f$dist$2f$index$2e$esm2017$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["collection"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$firebase$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["db"], 'users')));
+                    const userCount_0 = usersSnapshot_0.size;
+                    console.log('Current user count:', userCount_0, 'Max users:', MAX_USERS);
+                    if (userCount_0 >= MAX_USERS) {
+                        // Delete the Firebase auth user that was just created
+                        await firebaseUserData_1.delete();
+                        const errorMsg_1 = `User limit reached. This app is in evaluation phase and limited to ${MAX_USERS} users.`;
+                        setError(errorMsg_1);
+                        throw new Error(errorMsg_1);
+                    }
+                } catch (limitCheckError_0) {
+                    // If it's a limit error, re-throw it
+                    if (limitCheckError_0 instanceof Error && limitCheckError_0.message.includes('User limit reached')) {
+                        throw limitCheckError_0;
+                    }
+                    // For other errors (permission issues), log warning but proceed
+                    console.warn('Could not check user limit:', limitCheckError_0);
+                }
                 // Create new user document
                 const newUser_0 = {
                     uid: firebaseUserData_1.uid,
@@ -247,14 +344,84 @@ const AuthProvider = ({ children })=>{
                     createdAt: new Date().toISOString(),
                     updatedAt: new Date().toISOString()
                 };
+                console.log('Creating user document:', newUser_0);
                 await (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$firebase$2f$firestore$2f$dist$2f$index$2e$esm2017$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["setDoc"])(userDocRef_1, newUser_0);
+                console.log('User document created successfully');
                 setUser(newUser_0);
+            } else {
+                console.log('User document exists');
+                setUser(userDocSnap_1.data());
             }
             setFirebaseUser(firebaseUserData_1);
-        } catch (err_4) {
-            const errorMessage_2 = err_4 instanceof Error ? err_4.message : 'Google sign-in failed';
-            setError(errorMessage_2);
-            throw err_4;
+        } catch (err_5) {
+            console.error('Google sign-in error:', err_5);
+            const errorMessage_3 = err_5 instanceof Error ? err_5.message : 'Google sign-in failed';
+            setError(errorMessage_3);
+            throw err_5;
+        } finally{
+            setLoading(false);
+        }
+    };
+    /**
+   * Sign in with Facebook
+   */ const signInWithFacebook = async ()=>{
+        try {
+            setError(null);
+            setLoading(true);
+            const provider_1 = new __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$firebase$2f$auth$2f$dist$2f$esm2017$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["FacebookAuthProvider"]();
+            provider_1.addScope('email');
+            provider_1.addScope('public_profile');
+            const result_2 = await (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$firebase$2f$auth$2f$dist$2f$esm2017$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["signInWithPopup"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$firebase$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["auth"], provider_1);
+            const firebaseUserData_2 = result_2.user;
+            console.log('Facebook sign-in successful, user:', firebaseUserData_2.uid);
+            // Check if user exists in Firestore
+            const userDocRef_2 = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$firebase$2f$firestore$2f$dist$2f$index$2e$esm2017$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["doc"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$firebase$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["db"], 'users', firebaseUserData_2.uid);
+            const userDocSnap_2 = await (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$firebase$2f$firestore$2f$dist$2f$index$2e$esm2017$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["getDoc"])(userDocRef_2);
+            if (!userDocSnap_2.exists()) {
+                console.log('User document does not exist, checking limit...');
+                try {
+                    // Check user limit before creating new user (evaluation phase)
+                    const usersSnapshot_1 = await (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$firebase$2f$firestore$2f$dist$2f$index$2e$esm2017$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["getDocs"])((0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$firebase$2f$firestore$2f$dist$2f$index$2e$esm2017$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["query"])((0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$firebase$2f$firestore$2f$dist$2f$index$2e$esm2017$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["collection"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$firebase$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["db"], 'users')));
+                    const userCount_1 = usersSnapshot_1.size;
+                    console.log('Current user count:', userCount_1, 'Max users:', MAX_USERS);
+                    if (userCount_1 >= MAX_USERS) {
+                        // Delete the Firebase auth user that was just created
+                        await firebaseUserData_2.delete();
+                        const errorMsg_2 = `User limit reached. This app is in evaluation phase and limited to ${MAX_USERS} users.`;
+                        setError(errorMsg_2);
+                        throw new Error(errorMsg_2);
+                    }
+                } catch (limitCheckError_1) {
+                    // If it's a limit error, re-throw it
+                    if (limitCheckError_1 instanceof Error && limitCheckError_1.message.includes('User limit reached')) {
+                        throw limitCheckError_1;
+                    }
+                    // For other errors (permission issues), log warning but proceed
+                    console.warn('Could not check user limit:', limitCheckError_1);
+                }
+                // Create new user document
+                const newUser_1 = {
+                    uid: firebaseUserData_2.uid,
+                    email: firebaseUserData_2.email || '',
+                    name: firebaseUserData_2.displayName || '',
+                    profilePicture: firebaseUserData_2.photoURL || undefined,
+                    createdAt: new Date().toISOString(),
+                    updatedAt: new Date().toISOString()
+                };
+                console.log('Creating user document:', newUser_1);
+                await (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$firebase$2f$firestore$2f$dist$2f$index$2e$esm2017$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["setDoc"])(userDocRef_2, newUser_1);
+                console.log('User document created successfully');
+                setUser(newUser_1);
+            } else {
+                console.log('User document exists');
+                setUser(userDocSnap_2.data());
+            }
+            setFirebaseUser(firebaseUserData_2);
+        } catch (err_6) {
+            console.error('Facebook sign-in error:', err_6);
+            const errorMessage_4 = err_6 instanceof Error ? err_6.message : 'Facebook sign-in failed';
+            setError(errorMessage_4);
+            throw err_6;
         } finally{
             setLoading(false);
         }
@@ -265,20 +432,20 @@ const AuthProvider = ({ children })=>{
         try {
             if (!firebaseUser) throw new Error('No user logged in');
             setError(null);
-            const userDocRef_2 = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$firebase$2f$firestore$2f$dist$2f$index$2e$esm2017$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["doc"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$firebase$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["db"], 'users', firebaseUser.uid);
+            const userDocRef_3 = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$firebase$2f$firestore$2f$dist$2f$index$2e$esm2017$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["doc"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$firebase$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["db"], 'users', firebaseUser.uid);
             const updatedUser = {
                 ...user,
                 ...updates,
                 updatedAt: new Date().toISOString()
             };
-            await (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$firebase$2f$firestore$2f$dist$2f$index$2e$esm2017$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["setDoc"])(userDocRef_2, updatedUser, {
+            await (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$firebase$2f$firestore$2f$dist$2f$index$2e$esm2017$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["setDoc"])(userDocRef_3, updatedUser, {
                 merge: true
             });
             setUser(updatedUser);
-        } catch (err_5) {
-            const errorMessage_3 = err_5 instanceof Error ? err_5.message : 'Update failed';
-            setError(errorMessage_3);
-            throw err_5;
+        } catch (err_7) {
+            const errorMessage_5 = err_7 instanceof Error ? err_7.message : 'Update failed';
+            setError(errorMessage_5);
+            throw err_7;
         }
     };
     const value = {
@@ -291,6 +458,8 @@ const AuthProvider = ({ children })=>{
         logout,
         updateProfile,
         signInWithGoogle,
+        signInWithApple,
+        signInWithFacebook,
         isAuthenticated: !!firebaseUser
     };
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(AuthContext.Provider, {
@@ -298,7 +467,7 @@ const AuthProvider = ({ children })=>{
         children: children
     }, void 0, false, {
         fileName: "[project]/src/context/AuthContext.tsx",
-        lineNumber: 232,
+        lineNumber: 409,
         columnNumber: 10
     }, ("TURBOPACK compile-time value", void 0));
 };
@@ -307,11 +476,11 @@ _c = AuthProvider;
 const useAuth = ()=>{
     _s1();
     const $ = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$compiler$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["c"])(1);
-    if ($[0] !== "a2179d1caf66d0ef23f3eb7c816cb3a1e303da35c58ce85d8ab5efc6f5e65306") {
+    if ($[0] !== "efcd02ed3c95cd79923486b758dc22f7d6e52cb71657e26a76c67f1300e1a8b0") {
         for(let $i = 0; $i < 1; $i += 1){
             $[$i] = Symbol.for("react.memo_cache_sentinel");
         }
-        $[0] = "a2179d1caf66d0ef23f3eb7c816cb3a1e303da35c58ce85d8ab5efc6f5e65306";
+        $[0] = "efcd02ed3c95cd79923486b758dc22f7d6e52cb71657e26a76c67f1300e1a8b0";
     }
     const context = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useContext"])(AuthContext);
     if (context === undefined) {

@@ -50,6 +50,12 @@
       "namedRegex": "^/_not\\-found(?:/)?$"
     },
     {
+      "page": "/api/check-user-limit",
+      "regex": "^/api/check\\-user\\-limit(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/check\\-user\\-limit(?:/)?$"
+    },
+    {
       "page": "/api/seed-exercises",
       "regex": "^/api/seed\\-exercises(?:/)?$",
       "routeKeys": {},

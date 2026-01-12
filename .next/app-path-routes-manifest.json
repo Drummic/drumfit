@@ -1,6 +1,7 @@
 {
   "/_global-error/page": "/_global-error",
   "/_not-found/page": "/_not-found",
+  "/api/check-user-limit/route": "/api/check-user-limit",
   "/api/seed-exercises/route": "/api/seed-exercises",
   "/dashboard/page": "/dashboard",
   "/exercises/page": "/exercises",

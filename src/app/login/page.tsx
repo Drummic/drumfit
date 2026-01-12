@@ -212,21 +212,6 @@ export default function LoginPage() {
             </svg>
             Sign in with Google
           </button>
-
-          {/* Divider */}
-          <div className="my-6 flex items-center">
-            <div className="flex-1 border-t border-slate-600"></div>
-            <span className="px-3 text-slate-400 text-sm">No account yet?</span>
-            <div className="flex-1 border-t border-slate-600"></div>
-          </div>
-
-          {/* Signup Link */}
-          <Link
-            href="/signup"
-            className="w-full px-4 py-2 bg-slate-700 hover:bg-slate-600 text-white font-medium rounded-lg transition duration-200 text-center block"
-          >
-            Create Account
-          </Link>
         </div>
 
         {/* Footer */}
