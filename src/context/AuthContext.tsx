@@ -123,9 +123,14 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
       setError(null);
       setLoading(true);
 
-      // Check user limit (evaluation phase - max 10 users)
+      console.log('Starting email/password signup for:', email);
+
+      // Check user limit (evaluation phase - max 5 users)
+      console.log('Checking user limit...');
       const usersSnapshot = await getDocs(query(collection(db, 'users')));
       const userCount = usersSnapshot.size;
+
+      console.log('Current user count:', userCount, 'Max users:', MAX_USERS);
 
       if (userCount >= MAX_USERS) {
         const errorMsg = `User limit reached. This app is in evaluation phase and limited to ${MAX_USERS} users.`;
@@ -133,9 +138,13 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
         throw new Error(errorMsg);
       }
 
+      console.log('User limit check passed, creating Firebase auth user...');
+
       // Create Firebase auth user
       const result = await createUserWithEmailAndPassword(auth, email, password);
       const firebaseUserData = result.user;
+
+      console.log('Firebase auth user created:', firebaseUserData.uid);
 
       // Create Firestore user document
       const newUser: User = {
@@ -146,12 +155,17 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
         updatedAt: new Date().toISOString(),
       };
 
+      console.log('Creating Firestore user document...');
+
       const userDocRef = doc(db, 'users', firebaseUserData.uid);
       await setDoc(userDocRef, newUser);
+
+      console.log('Firestore user document created successfully');
 
       setUser(newUser);
       setFirebaseUser(firebaseUserData);
     } catch (err) {
+      console.error('Signup error:', err);
       const errorMessage = err instanceof Error ? err.message : 'Signup failed';
       setError(errorMessage);
       throw err;
