@@ -12,7 +12,7 @@
 
 'use client';
 
-import React, { ReactNode } from 'react';
+import React, { ReactNode, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { useAuth } from '@/context/AuthContext';
 
@@ -30,6 +30,13 @@ export const ProtectedRoute: React.FC<ProtectedRouteProps> = ({ children }) => {
   const router = useRouter();
   const { isAuthenticated, loading } = useAuth();
 
+  // Handle redirect to login in useEffect (not during render)
+  useEffect(() => {
+    if (!loading && !isAuthenticated) {
+      router.push('/login');
+    }
+  }, [isAuthenticated, loading, router]);
+
   // Show loading state while checking authentication
   if (loading) {
     return (
@@ -42,9 +49,8 @@ export const ProtectedRoute: React.FC<ProtectedRouteProps> = ({ children }) => {
     );
   }
 
-  // Redirect to login if not authenticated
+  // Return null while redirecting if not authenticated
   if (!isAuthenticated) {
-    router.push('/login');
     return null;
   }
 
