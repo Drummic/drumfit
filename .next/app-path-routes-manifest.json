@@ -7,6 +7,7 @@
   "/exercises/page": "/exercises",
   "/favicon.ico/route": "/favicon.ico",
   "/login/page": "/login",
+  "/meals/page": "/meals",
   "/page": "/",
   "/signup/page": "/signup",
   "/workouts/[id]/run/page": "/workouts/[id]/run",

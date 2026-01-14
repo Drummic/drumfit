@@ -2477,8 +2477,9 @@ function DashboardPage() {
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                             className: "grid grid-cols-1 md:grid-cols-3 gap-6 mb-12",
                             children: [
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                    className: "bg-slate-800 rounded-lg p-6 border border-slate-700 hover:border-blue-500 transition cursor-pointer group",
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
+                                    href: "/workouts",
+                                    className: "bg-slate-800 rounded-lg p-6 border border-slate-700 hover:border-blue-500 hover:bg-slate-700 transition cursor-pointer group",
                                     children: [
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                             className: "flex items-center justify-between mb-4",
@@ -2488,7 +2489,7 @@ function DashboardPage() {
                                                     children: "Workouts"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/dashboard/page.tsx",
-                                                    lineNumber: 90,
+                                                    lineNumber: 93,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2497,18 +2498,18 @@ function DashboardPage() {
                                                         className: "w-6 h-6 text-blue-500"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/dashboard/page.tsx",
-                                                        lineNumber: 92,
+                                                        lineNumber: 95,
                                                         columnNumber: 19
                                                     }, this)
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/dashboard/page.tsx",
-                                                    lineNumber: 91,
+                                                    lineNumber: 94,
                                                     columnNumber: 17
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/app/dashboard/page.tsx",
-                                            lineNumber: 89,
+                                            lineNumber: 92,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -2516,15 +2517,15 @@ function DashboardPage() {
                                             children: workouts.length
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/dashboard/page.tsx",
-                                            lineNumber: 95,
+                                            lineNumber: 98,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                             className: "text-slate-400 text-sm",
-                                            children: "Custom workouts"
+                                            children: "Create, change, and delete"
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/dashboard/page.tsx",
-                                            lineNumber: 96,
+                                            lineNumber: 99,
                                             columnNumber: 15
                                         }, this)
                                     ]
@@ -2533,8 +2534,9 @@ function DashboardPage() {
                                     lineNumber: 88,
                                     columnNumber: 13
                                 }, this),
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                    className: "bg-slate-800 rounded-lg p-6 border border-slate-700 hover:border-green-500 transition cursor-pointer group",
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
+                                    href: "/exercises",
+                                    className: "bg-slate-800 rounded-lg p-6 border border-slate-700 hover:border-green-500 hover:bg-slate-700 transition cursor-pointer group",
                                     children: [
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                             className: "flex items-center justify-between mb-4",
@@ -2544,7 +2546,7 @@ function DashboardPage() {
                                                     children: "Exercises"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/dashboard/page.tsx",
-                                                    lineNumber: 102,
+                                                    lineNumber: 108,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2553,18 +2555,18 @@ function DashboardPage() {
                                                         className: "w-6 h-6 text-green-500"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/dashboard/page.tsx",
-                                                        lineNumber: 104,
+                                                        lineNumber: 110,
                                                         columnNumber: 19
                                                     }, this)
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/dashboard/page.tsx",
-                                                    lineNumber: 103,
+                                                    lineNumber: 109,
                                                     columnNumber: 17
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/app/dashboard/page.tsx",
-                                            lineNumber: 101,
+                                            lineNumber: 107,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -2572,25 +2574,26 @@ function DashboardPage() {
                                             children: exercises.length
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/dashboard/page.tsx",
-                                            lineNumber: 107,
+                                            lineNumber: 113,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                             className: "text-slate-400 text-sm",
-                                            children: "Custom exercises"
+                                            children: "Configure reps & sets"
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/dashboard/page.tsx",
-                                            lineNumber: 108,
+                                            lineNumber: 114,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/app/dashboard/page.tsx",
-                                    lineNumber: 100,
+                                    lineNumber: 103,
                                     columnNumber: 13
                                 }, this),
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                    className: "bg-slate-800 rounded-lg p-6 border border-slate-700 hover:border-orange-500 transition cursor-pointer group",
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
+                                    href: "/meals",
+                                    className: "bg-slate-800 rounded-lg p-6 border border-slate-700 hover:border-orange-500 hover:bg-slate-700 transition cursor-pointer group",
                                     children: [
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                             className: "flex items-center justify-between mb-4",
@@ -2600,7 +2603,7 @@ function DashboardPage() {
                                                     children: "Meals"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/dashboard/page.tsx",
-                                                    lineNumber: 114,
+                                                    lineNumber: 123,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2609,18 +2612,18 @@ function DashboardPage() {
                                                         className: "w-6 h-6 text-orange-500"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/dashboard/page.tsx",
-                                                        lineNumber: 116,
+                                                        lineNumber: 125,
                                                         columnNumber: 19
                                                     }, this)
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/dashboard/page.tsx",
-                                                    lineNumber: 115,
+                                                    lineNumber: 124,
                                                     columnNumber: 17
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/app/dashboard/page.tsx",
-                                            lineNumber: 113,
+                                            lineNumber: 122,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -2628,89 +2631,27 @@ function DashboardPage() {
                                             children: "0"
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/dashboard/page.tsx",
-                                            lineNumber: 119,
+                                            lineNumber: 128,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                             className: "text-slate-400 text-sm",
-                                            children: "Meal plans"
+                                            children: "Manage meal plans"
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/dashboard/page.tsx",
-                                            lineNumber: 120,
+                                            lineNumber: 129,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/app/dashboard/page.tsx",
-                                    lineNumber: 112,
+                                    lineNumber: 118,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/app/dashboard/page.tsx",
                             lineNumber: 86,
-                            columnNumber: 11
-                        }, this),
-                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
-                            className: "grid grid-cols-1 md:grid-cols-3 gap-4 mb-12",
-                            children: [
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
-                                    href: workouts.length > 0 ? `/workouts/${workouts[0].id}/run` : '/workouts',
-                                    className: "bg-blue-600 hover:bg-blue-700 text-white font-semibold py-4 px-6 rounded-lg transition flex items-center justify-center gap-3 disabled:opacity-50 disabled:cursor-not-allowed",
-                                    children: [
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$zap$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Zap$3e$__["Zap"], {
-                                            className: "w-5 h-5"
-                                        }, void 0, false, {
-                                            fileName: "[project]/src/app/dashboard/page.tsx",
-                                            lineNumber: 131,
-                                            columnNumber: 15
-                                        }, this),
-                                        workouts.length > 0 ? 'Start Workout' : 'Create Workout'
-                                    ]
-                                }, void 0, true, {
-                                    fileName: "[project]/src/app/dashboard/page.tsx",
-                                    lineNumber: 127,
-                                    columnNumber: 13
-                                }, this),
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
-                                    href: "/workouts",
-                                    className: "bg-green-600 hover:bg-green-700 text-white font-semibold py-4 px-6 rounded-lg transition flex items-center justify-center gap-3",
-                                    children: [
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$dumbbell$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Dumbbell$3e$__["Dumbbell"], {
-                                            className: "w-5 h-5"
-                                        }, void 0, false, {
-                                            fileName: "[project]/src/app/dashboard/page.tsx",
-                                            lineNumber: 140,
-                                            columnNumber: 15
-                                        }, this),
-                                        "Manage Workouts"
-                                    ]
-                                }, void 0, true, {
-                                    fileName: "[project]/src/app/dashboard/page.tsx",
-                                    lineNumber: 136,
-                                    columnNumber: 13
-                                }, this),
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                                    className: "bg-orange-600 hover:bg-orange-700 text-white font-semibold py-4 px-6 rounded-lg transition flex items-center justify-center gap-3",
-                                    children: [
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$utensils$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Utensils$3e$__["Utensils"], {
-                                            className: "w-5 h-5"
-                                        }, void 0, false, {
-                                            fileName: "[project]/src/app/dashboard/page.tsx",
-                                            lineNumber: 146,
-                                            columnNumber: 15
-                                        }, this),
-                                        "Plan Meal"
-                                    ]
-                                }, void 0, true, {
-                                    fileName: "[project]/src/app/dashboard/page.tsx",
-                                    lineNumber: 145,
-                                    columnNumber: 13
-                                }, this)
-                            ]
-                        }, void 0, true, {
-                            fileName: "[project]/src/app/dashboard/page.tsx",
-                            lineNumber: 125,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
@@ -2721,18 +2662,18 @@ function DashboardPage() {
                                     children: "Workout Statistics"
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/dashboard/page.tsx",
-                                    lineNumber: 153,
+                                    lineNumber: 135,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$activities$2f$StatsOverview$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["StatsOverview"], {}, void 0, false, {
                                     fileName: "[project]/src/app/dashboard/page.tsx",
-                                    lineNumber: 154,
+                                    lineNumber: 136,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/app/dashboard/page.tsx",
-                            lineNumber: 152,
+                            lineNumber: 134,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
@@ -2746,7 +2687,7 @@ function DashboardPage() {
                                             children: "Recent Activities"
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/dashboard/page.tsx",
-                                            lineNumber: 160,
+                                            lineNumber: 142,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2760,12 +2701,12 @@ function DashboardPage() {
                                                         className: "w-5 h-5"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/dashboard/page.tsx",
-                                                        lineNumber: 171,
+                                                        lineNumber: 153,
                                                         columnNumber: 19
                                                     }, this)
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/dashboard/page.tsx",
-                                                    lineNumber: 162,
+                                                    lineNumber: 144,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -2776,24 +2717,24 @@ function DashboardPage() {
                                                         className: "w-5 h-5"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/dashboard/page.tsx",
-                                                        lineNumber: 182,
+                                                        lineNumber: 164,
                                                         columnNumber: 19
                                                     }, this)
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/dashboard/page.tsx",
-                                                    lineNumber: 173,
+                                                    lineNumber: 155,
                                                     columnNumber: 17
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/app/dashboard/page.tsx",
-                                            lineNumber: 161,
+                                            lineNumber: 143,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/app/dashboard/page.tsx",
-                                    lineNumber: 159,
+                                    lineNumber: 141,
                                     columnNumber: 13
                                 }, this),
                                 activityView === 'list' ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$activities$2f$ActivityListView$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
@@ -2801,20 +2742,20 @@ function DashboardPage() {
                                     onSelectLog: setSelectedLog
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/dashboard/page.tsx",
-                                    lineNumber: 188,
+                                    lineNumber: 170,
                                     columnNumber: 15
                                 }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$activities$2f$ActivityCalendarView$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
                                     logs: logs,
                                     onSelectLog: setSelectedLog
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/dashboard/page.tsx",
-                                    lineNumber: 190,
+                                    lineNumber: 172,
                                     columnNumber: 15
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/app/dashboard/page.tsx",
-                            lineNumber: 158,
+                            lineNumber: 140,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$activities$2f$ActivityDetails$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
@@ -2822,7 +2763,7 @@ function DashboardPage() {
                             onClose: ()=>setSelectedLog(null)
                         }, void 0, false, {
                             fileName: "[project]/src/app/dashboard/page.tsx",
-                            lineNumber: 195,
+                            lineNumber: 177,
                             columnNumber: 11
                         }, this)
                     ]

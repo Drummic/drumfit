@@ -267,7 +267,7 @@ export function getSampleWorkoutAsWorkout(
         exerciseName: foundExercise.name,
         sets: templateEx.sets,
         reps: typeof templateEx.reps === 'string' ? parseInt(templateEx.reps) : templateEx.reps,
-      };
+      } as WorkoutExercise;
     })
     .filter((ex): ex is WorkoutExercise => ex !== null);
 

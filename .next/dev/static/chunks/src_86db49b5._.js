@@ -3242,12 +3242,12 @@ var _s = __turbopack_context__.k.signature();
 ;
 function DashboardPage() {
     _s();
-    const $ = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$compiler$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["c"])(82);
-    if ($[0] !== "1d4efe148cb9f2095446a7186488fb7552cda0c9cf2705530377b072456f4421") {
-        for(let $i = 0; $i < 82; $i += 1){
+    const $ = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$compiler$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["c"])(73);
+    if ($[0] !== "06ac9c8f4317bc60c1a200b3813c2aff3a8a8fde0b1405c5ff4f6b9ae5cb5150") {
+        for(let $i = 0; $i < 73; $i += 1){
             $[$i] = Symbol.for("react.memo_cache_sentinel");
         }
-        $[0] = "1d4efe148cb9f2095446a7186488fb7552cda0c9cf2705530377b072456f4421";
+        $[0] = "06ac9c8f4317bc60c1a200b3813c2aff3a8a8fde0b1405c5ff4f6b9ae5cb5150";
     }
     const { user, logout } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$context$2f$AuthContext$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useAuth"])();
     const { exercises } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$hooks$2f$useExercise$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useExercise"])();
@@ -3543,7 +3543,7 @@ function DashboardPage() {
     if ($[28] === Symbol.for("react.memo_cache_sentinel")) {
         t17 = /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
             className: "text-slate-400 text-sm",
-            children: "Custom workouts"
+            children: "Create, change, and delete"
         }, void 0, false, {
             fileName: "[project]/src/app/dashboard/page.tsx",
             lineNumber: 189,
@@ -3555,8 +3555,9 @@ function DashboardPage() {
     }
     let t18;
     if ($[29] !== t16) {
-        t18 = /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-            className: "bg-slate-800 rounded-lg p-6 border border-slate-700 hover:border-blue-500 transition cursor-pointer group",
+        t18 = /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
+            href: "/workouts",
+            className: "bg-slate-800 rounded-lg p-6 border border-slate-700 hover:border-blue-500 hover:bg-slate-700 transition cursor-pointer group",
             children: [
                 t15,
                 t16,
@@ -3635,7 +3636,7 @@ function DashboardPage() {
     if ($[35] === Symbol.for("react.memo_cache_sentinel")) {
         t22 = /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
             className: "text-slate-400 text-sm",
-            children: "Custom exercises"
+            children: "Configure reps & sets"
         }, void 0, false, {
             fileName: "[project]/src/app/dashboard/page.tsx",
             lineNumber: 226,
@@ -3647,8 +3648,9 @@ function DashboardPage() {
     }
     let t23;
     if ($[36] !== t21) {
-        t23 = /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-            className: "bg-slate-800 rounded-lg p-6 border border-slate-700 hover:border-green-500 transition cursor-pointer group",
+        t23 = /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
+            href: "/exercises",
+            className: "bg-slate-800 rounded-lg p-6 border border-slate-700 hover:border-green-500 hover:bg-slate-700 transition cursor-pointer group",
             children: [
                 t20,
                 t21,
@@ -3680,8 +3682,9 @@ function DashboardPage() {
     }
     let t25;
     if ($[39] === Symbol.for("react.memo_cache_sentinel")) {
-        t25 = /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-            className: "bg-slate-800 rounded-lg p-6 border border-slate-700 hover:border-orange-500 transition cursor-pointer group",
+        t25 = /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
+            href: "/meals",
+            className: "bg-slate-800 rounded-lg p-6 border border-slate-700 hover:border-orange-500 hover:bg-slate-700 transition cursor-pointer group",
             children: [
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                     className: "flex items-center justify-between mb-4",
@@ -3694,18 +3697,18 @@ function DashboardPage() {
                             }, void 0, false, {
                                 fileName: "[project]/src/app/dashboard/page.tsx",
                                 lineNumber: 248,
-                                columnNumber: 286
+                                columnNumber: 320
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/src/app/dashboard/page.tsx",
                             lineNumber: 248,
-                            columnNumber: 197
+                            columnNumber: 231
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/app/dashboard/page.tsx",
                     lineNumber: 248,
-                    columnNumber: 136
+                    columnNumber: 170
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                     className: "text-3xl font-bold text-white mb-2",
@@ -3713,15 +3716,15 @@ function DashboardPage() {
                 }, void 0, false, {
                     fileName: "[project]/src/app/dashboard/page.tsx",
                     lineNumber: 248,
-                    columnNumber: 346
+                    columnNumber: 380
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                     className: "text-slate-400 text-sm",
-                    children: "Meal plans"
+                    children: "Manage meal plans"
                 }, void 0, false, {
                     fileName: "[project]/src/app/dashboard/page.tsx",
                     lineNumber: 248,
-                    columnNumber: 401
+                    columnNumber: 435
                 }, this)
             ]
         }, void 0, true, {
@@ -3753,110 +3756,9 @@ function DashboardPage() {
     } else {
         t26 = $[42];
     }
-    const t27 = workouts.length > 0 ? `/workouts/${workouts[0].id}/run` : "/workouts";
-    let t28;
+    let t27;
     if ($[43] === Symbol.for("react.memo_cache_sentinel")) {
-        t28 = /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$zap$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Zap$3e$__["Zap"], {
-            className: "w-5 h-5"
-        }, void 0, false, {
-            fileName: "[project]/src/app/dashboard/page.tsx",
-            lineNumber: 265,
-            columnNumber: 11
-        }, this);
-        $[43] = t28;
-    } else {
-        t28 = $[43];
-    }
-    const t29 = workouts.length > 0 ? "Start Workout" : "Create Workout";
-    let t30;
-    if ($[44] !== t27 || $[45] !== t29) {
-        t30 = /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
-            href: t27,
-            className: "bg-blue-600 hover:bg-blue-700 text-white font-semibold py-4 px-6 rounded-lg transition flex items-center justify-center gap-3 disabled:opacity-50 disabled:cursor-not-allowed",
-            children: [
-                t28,
-                t29
-            ]
-        }, void 0, true, {
-            fileName: "[project]/src/app/dashboard/page.tsx",
-            lineNumber: 273,
-            columnNumber: 11
-        }, this);
-        $[44] = t27;
-        $[45] = t29;
-        $[46] = t30;
-    } else {
-        t30 = $[46];
-    }
-    let t31;
-    if ($[47] === Symbol.for("react.memo_cache_sentinel")) {
-        t31 = /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
-            href: "/workouts",
-            className: "bg-green-600 hover:bg-green-700 text-white font-semibold py-4 px-6 rounded-lg transition flex items-center justify-center gap-3",
-            children: [
-                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$dumbbell$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Dumbbell$3e$__["Dumbbell"], {
-                    className: "w-5 h-5"
-                }, void 0, false, {
-                    fileName: "[project]/src/app/dashboard/page.tsx",
-                    lineNumber: 282,
-                    columnNumber: 174
-                }, this),
-                "Manage Workouts"
-            ]
-        }, void 0, true, {
-            fileName: "[project]/src/app/dashboard/page.tsx",
-            lineNumber: 282,
-            columnNumber: 11
-        }, this);
-        $[47] = t31;
-    } else {
-        t31 = $[47];
-    }
-    let t32;
-    if ($[48] === Symbol.for("react.memo_cache_sentinel")) {
-        t32 = /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-            className: "bg-orange-600 hover:bg-orange-700 text-white font-semibold py-4 px-6 rounded-lg transition flex items-center justify-center gap-3",
-            children: [
-                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$utensils$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Utensils$3e$__["Utensils"], {
-                    className: "w-5 h-5"
-                }, void 0, false, {
-                    fileName: "[project]/src/app/dashboard/page.tsx",
-                    lineNumber: 289,
-                    columnNumber: 161
-                }, this),
-                "Plan Meal"
-            ]
-        }, void 0, true, {
-            fileName: "[project]/src/app/dashboard/page.tsx",
-            lineNumber: 289,
-            columnNumber: 11
-        }, this);
-        $[48] = t32;
-    } else {
-        t32 = $[48];
-    }
-    let t33;
-    if ($[49] !== t30) {
-        t33 = /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
-            className: "grid grid-cols-1 md:grid-cols-3 gap-4 mb-12",
-            children: [
-                t30,
-                t31,
-                t32
-            ]
-        }, void 0, true, {
-            fileName: "[project]/src/app/dashboard/page.tsx",
-            lineNumber: 296,
-            columnNumber: 11
-        }, this);
-        $[49] = t30;
-        $[50] = t33;
-    } else {
-        t33 = $[50];
-    }
-    let t34;
-    if ($[51] === Symbol.for("react.memo_cache_sentinel")) {
-        t34 = /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
+        t27 = /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
             className: "mb-12",
             children: [
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
@@ -3864,265 +3766,263 @@ function DashboardPage() {
                     children: "Workout Statistics"
                 }, void 0, false, {
                     fileName: "[project]/src/app/dashboard/page.tsx",
-                    lineNumber: 304,
+                    lineNumber: 264,
                     columnNumber: 38
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$activities$2f$StatsOverview$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["StatsOverview"], {}, void 0, false, {
                     fileName: "[project]/src/app/dashboard/page.tsx",
-                    lineNumber: 304,
+                    lineNumber: 264,
                     columnNumber: 111
                 }, this)
             ]
         }, void 0, true, {
             fileName: "[project]/src/app/dashboard/page.tsx",
-            lineNumber: 304,
+            lineNumber: 264,
             columnNumber: 11
         }, this);
-        $[51] = t34;
+        $[43] = t27;
     } else {
-        t34 = $[51];
+        t27 = $[43];
     }
-    let t35;
-    if ($[52] === Symbol.for("react.memo_cache_sentinel")) {
-        t35 = /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
+    let t28;
+    if ($[44] === Symbol.for("react.memo_cache_sentinel")) {
+        t28 = /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
             className: "text-xl font-bold text-white",
             children: "Recent Activities"
         }, void 0, false, {
             fileName: "[project]/src/app/dashboard/page.tsx",
-            lineNumber: 311,
+            lineNumber: 271,
             columnNumber: 11
         }, this);
-        $[52] = t35;
+        $[44] = t28;
     } else {
-        t35 = $[52];
+        t28 = $[44];
     }
-    let t36;
-    if ($[53] === Symbol.for("react.memo_cache_sentinel")) {
-        t36 = ({
+    let t29;
+    if ($[45] === Symbol.for("react.memo_cache_sentinel")) {
+        t29 = ({
             "DashboardPage[<button>.onClick]": ()=>setActivityView("list")
         })["DashboardPage[<button>.onClick]"];
-        $[53] = t36;
+        $[45] = t29;
     } else {
-        t36 = $[53];
+        t29 = $[45];
     }
-    const t37 = `p-2 rounded-lg transition ${activityView === "list" ? "bg-blue-600 text-white" : "bg-slate-700 text-slate-300 hover:bg-slate-600"}`;
-    let t38;
-    if ($[54] === Symbol.for("react.memo_cache_sentinel")) {
-        t38 = /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$list$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__List$3e$__["List"], {
+    const t30 = `p-2 rounded-lg transition ${activityView === "list" ? "bg-blue-600 text-white" : "bg-slate-700 text-slate-300 hover:bg-slate-600"}`;
+    let t31;
+    if ($[46] === Symbol.for("react.memo_cache_sentinel")) {
+        t31 = /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$list$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__List$3e$__["List"], {
             className: "w-5 h-5"
         }, void 0, false, {
             fileName: "[project]/src/app/dashboard/page.tsx",
-            lineNumber: 328,
+            lineNumber: 288,
             columnNumber: 11
         }, this);
-        $[54] = t38;
+        $[46] = t31;
     } else {
-        t38 = $[54];
+        t31 = $[46];
     }
-    let t39;
-    if ($[55] !== t37) {
-        t39 = /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-            onClick: t36,
-            className: t37,
+    let t32;
+    if ($[47] !== t30) {
+        t32 = /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+            onClick: t29,
+            className: t30,
             title: "List View",
-            children: t38
+            children: t31
         }, void 0, false, {
             fileName: "[project]/src/app/dashboard/page.tsx",
-            lineNumber: 335,
+            lineNumber: 295,
             columnNumber: 11
         }, this);
-        $[55] = t37;
-        $[56] = t39;
+        $[47] = t30;
+        $[48] = t32;
     } else {
-        t39 = $[56];
+        t32 = $[48];
     }
-    let t40;
-    if ($[57] === Symbol.for("react.memo_cache_sentinel")) {
-        t40 = ({
+    let t33;
+    if ($[49] === Symbol.for("react.memo_cache_sentinel")) {
+        t33 = ({
             "DashboardPage[<button>.onClick]": ()=>setActivityView("calendar")
         })["DashboardPage[<button>.onClick]"];
-        $[57] = t40;
+        $[49] = t33;
     } else {
-        t40 = $[57];
+        t33 = $[49];
     }
-    const t41 = `p-2 rounded-lg transition ${activityView === "calendar" ? "bg-blue-600 text-white" : "bg-slate-700 text-slate-300 hover:bg-slate-600"}`;
-    let t42;
-    if ($[58] === Symbol.for("react.memo_cache_sentinel")) {
-        t42 = /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$calendar$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Calendar$3e$__["Calendar"], {
+    const t34 = `p-2 rounded-lg transition ${activityView === "calendar" ? "bg-blue-600 text-white" : "bg-slate-700 text-slate-300 hover:bg-slate-600"}`;
+    let t35;
+    if ($[50] === Symbol.for("react.memo_cache_sentinel")) {
+        t35 = /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$calendar$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Calendar$3e$__["Calendar"], {
             className: "w-5 h-5"
         }, void 0, false, {
             fileName: "[project]/src/app/dashboard/page.tsx",
-            lineNumber: 353,
+            lineNumber: 313,
             columnNumber: 11
         }, this);
-        $[58] = t42;
+        $[50] = t35;
     } else {
-        t42 = $[58];
+        t35 = $[50];
     }
-    let t43;
-    if ($[59] !== t41) {
-        t43 = /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-            onClick: t40,
-            className: t41,
+    let t36;
+    if ($[51] !== t34) {
+        t36 = /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+            onClick: t33,
+            className: t34,
             title: "Calendar View",
-            children: t42
+            children: t35
         }, void 0, false, {
             fileName: "[project]/src/app/dashboard/page.tsx",
-            lineNumber: 360,
+            lineNumber: 320,
             columnNumber: 11
         }, this);
-        $[59] = t41;
-        $[60] = t43;
+        $[51] = t34;
+        $[52] = t36;
     } else {
-        t43 = $[60];
+        t36 = $[52];
     }
-    let t44;
-    if ($[61] !== t39 || $[62] !== t43) {
-        t44 = /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+    let t37;
+    if ($[53] !== t32 || $[54] !== t36) {
+        t37 = /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
             className: "flex items-center justify-between mb-6",
             children: [
-                t35,
+                t28,
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                     className: "flex gap-2",
                     children: [
-                        t39,
-                        t43
+                        t32,
+                        t36
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/app/dashboard/page.tsx",
-                    lineNumber: 368,
+                    lineNumber: 328,
                     columnNumber: 72
                 }, this)
             ]
         }, void 0, true, {
             fileName: "[project]/src/app/dashboard/page.tsx",
-            lineNumber: 368,
+            lineNumber: 328,
             columnNumber: 11
         }, this);
-        $[61] = t39;
-        $[62] = t43;
-        $[63] = t44;
+        $[53] = t32;
+        $[54] = t36;
+        $[55] = t37;
     } else {
-        t44 = $[63];
+        t37 = $[55];
     }
-    let t45;
-    if ($[64] !== activityView || $[65] !== logs) {
-        t45 = activityView === "list" ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$activities$2f$ActivityListView$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
+    let t38;
+    if ($[56] !== activityView || $[57] !== logs) {
+        t38 = activityView === "list" ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$activities$2f$ActivityListView$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
             logs: logs,
             onSelectLog: setSelectedLog
         }, void 0, false, {
             fileName: "[project]/src/app/dashboard/page.tsx",
-            lineNumber: 377,
+            lineNumber: 337,
             columnNumber: 37
         }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$activities$2f$ActivityCalendarView$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
             logs: logs,
             onSelectLog: setSelectedLog
         }, void 0, false, {
             fileName: "[project]/src/app/dashboard/page.tsx",
-            lineNumber: 377,
+            lineNumber: 337,
             columnNumber: 101
         }, this);
-        $[64] = activityView;
-        $[65] = logs;
-        $[66] = t45;
+        $[56] = activityView;
+        $[57] = logs;
+        $[58] = t38;
     } else {
-        t45 = $[66];
+        t38 = $[58];
     }
-    let t46;
-    if ($[67] !== t44 || $[68] !== t45) {
-        t46 = /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
+    let t39;
+    if ($[59] !== t37 || $[60] !== t38) {
+        t39 = /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
             className: "mt-12",
             children: [
-                t44,
-                t45
+                t37,
+                t38
             ]
         }, void 0, true, {
             fileName: "[project]/src/app/dashboard/page.tsx",
-            lineNumber: 386,
+            lineNumber: 346,
             columnNumber: 11
         }, this);
-        $[67] = t44;
-        $[68] = t45;
-        $[69] = t46;
+        $[59] = t37;
+        $[60] = t38;
+        $[61] = t39;
     } else {
-        t46 = $[69];
+        t39 = $[61];
     }
-    let t47;
-    if ($[70] === Symbol.for("react.memo_cache_sentinel")) {
-        t47 = ({
+    let t40;
+    if ($[62] === Symbol.for("react.memo_cache_sentinel")) {
+        t40 = ({
             "DashboardPage[<ActivityDetails>.onClose]": ()=>setSelectedLog(null)
         })["DashboardPage[<ActivityDetails>.onClose]"];
-        $[70] = t47;
+        $[62] = t40;
     } else {
-        t47 = $[70];
+        t40 = $[62];
     }
-    let t48;
-    if ($[71] !== selectedLog) {
-        t48 = /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$activities$2f$ActivityDetails$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
+    let t41;
+    if ($[63] !== selectedLog) {
+        t41 = /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$activities$2f$ActivityDetails$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
             log: selectedLog,
-            onClose: t47
+            onClose: t40
         }, void 0, false, {
             fileName: "[project]/src/app/dashboard/page.tsx",
-            lineNumber: 404,
+            lineNumber: 364,
             columnNumber: 11
         }, this);
-        $[71] = selectedLog;
-        $[72] = t48;
+        $[63] = selectedLog;
+        $[64] = t41;
     } else {
-        t48 = $[72];
+        t41 = $[64];
     }
-    let t49;
-    if ($[73] !== t13 || $[74] !== t26 || $[75] !== t33 || $[76] !== t46 || $[77] !== t48) {
-        t49 = /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("main", {
+    let t42;
+    if ($[65] !== t13 || $[66] !== t26 || $[67] !== t39 || $[68] !== t41) {
+        t42 = /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("main", {
             className: "max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12",
             children: [
                 t13,
                 t26,
-                t33,
-                t34,
-                t46,
-                t48
+                t27,
+                t39,
+                t41
             ]
         }, void 0, true, {
             fileName: "[project]/src/app/dashboard/page.tsx",
-            lineNumber: 412,
+            lineNumber: 372,
             columnNumber: 11
         }, this);
-        $[73] = t13;
-        $[74] = t26;
-        $[75] = t33;
-        $[76] = t46;
-        $[77] = t48;
-        $[78] = t49;
+        $[65] = t13;
+        $[66] = t26;
+        $[67] = t39;
+        $[68] = t41;
+        $[69] = t42;
     } else {
-        t49 = $[78];
+        t42 = $[69];
     }
-    let t50;
-    if ($[79] !== t49 || $[80] !== t9) {
-        t50 = /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ProtectedRoute$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
+    let t43;
+    if ($[70] !== t42 || $[71] !== t9) {
+        t43 = /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ProtectedRoute$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 className: "min-h-screen bg-linear-to-br from-slate-900 to-slate-800",
                 children: [
                     t9,
-                    t49
+                    t42
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/app/dashboard/page.tsx",
-                lineNumber: 424,
+                lineNumber: 383,
                 columnNumber: 27
             }, this)
         }, void 0, false, {
             fileName: "[project]/src/app/dashboard/page.tsx",
-            lineNumber: 424,
+            lineNumber: 383,
             columnNumber: 11
         }, this);
-        $[79] = t49;
-        $[80] = t9;
-        $[81] = t50;
+        $[70] = t42;
+        $[71] = t9;
+        $[72] = t43;
     } else {
-        t50 = $[81];
+        t43 = $[72];
     }
-    return t50;
+    return t43;
 }
 _s(DashboardPage, "e2eI0HJOnVeRdooTSNg0KpZW3bY=", false, function() {
     return [

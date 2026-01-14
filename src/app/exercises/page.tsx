@@ -17,9 +17,12 @@ import { useAuth } from '@/context/AuthContext';
 import { useExercise } from '@/hooks/useExercise';
 import ProtectedRoute from '@/components/ProtectedRoute';
 import CreateExerciseModal from '@/components/exercises/CreateExerciseModal';
+import EditExerciseModal from '@/components/exercises/EditExerciseModal';
+import ExerciseDetailModal from '@/components/exercises/ExerciseDetailModal';
 import ExerciseCard from '@/components/exercises/ExerciseCard';
 import { Plus, Dumbbell, ArrowLeft } from 'lucide-react';
 import Link from 'next/link';
+import { Exercise } from '@/types';
 
 /**
  * ExercisesPage Component
@@ -28,13 +31,18 @@ import Link from 'next/link';
 export default function ExercisesPage() {
   console.log('🏋️ ExercisesPage rendered');
   const { user, logout } = useAuth();
-  const { exercises, muscleGroups, loading, error, addExercise, removeExercise } = useExercise();
+  const { exercises, muscleGroups, loading, error, addExercise, removeExercise, updateExerciseData } = useExercise();
   const [isCreateModalOpen, setIsCreateModalOpen] = useState(false);
+  const [isEditModalOpen, setIsEditModalOpen] = useState(false);
+  const [isDetailModalOpen, setIsDetailModalOpen] = useState(false);
+  const [selectedExercise, setSelectedExercise] = useState<Exercise | null>(null);
   const [selectedMuscleGroup, setSelectedMuscleGroup] = useState<string | null>(null);
 
   console.log(
     '📊 Page state - isCreateModalOpen:',
     isCreateModalOpen,
+    'isEditModalOpen:',
+    isEditModalOpen,
     'exercises:',
     exercises.length
   );
@@ -45,6 +53,26 @@ export default function ExercisesPage() {
     } catch (error) {
       console.error('Logout failed:', error);
     }
+  };
+
+  const handleEditExercise = (exercise: Exercise) => {
+    setSelectedExercise(exercise);
+    setIsEditModalOpen(true);
+  };
+
+  const handleExerciseUpdated = async (exerciseId: string, exerciseData: Partial<Exercise>) => {
+    try {
+      await updateExerciseData(exerciseId, exerciseData);
+      setIsEditModalOpen(false);
+      setSelectedExercise(null);
+    } catch (error) {
+      console.error('Failed to update exercise:', error);
+    }
+  };
+
+  const handleViewExerciseDetail = (exercise: Exercise) => {
+    setSelectedExercise(exercise);
+    setIsDetailModalOpen(true);
   };
 
   // Filter exercises by selected muscle group
@@ -163,7 +191,8 @@ export default function ExercisesPage() {
                 <ExerciseCard
                   key={exercise.id}
                   exercise={exercise}
-                  onDelete={() => removeExercise(exercise.id)}
+                  onEdit={handleEditExercise}
+                  onViewDetail={handleEditExercise}
                 />
               ))}
             </div>
@@ -175,6 +204,34 @@ export default function ExercisesPage() {
           isOpen={isCreateModalOpen}
           onClose={() => setIsCreateModalOpen(false)}
           onExerciseCreated={addExercise}
+        />
+
+        {/* Edit Exercise Modal */}
+        <EditExerciseModal
+          isOpen={isEditModalOpen}
+          exercise={selectedExercise}
+          onClose={() => {
+            setIsEditModalOpen(false);
+            setSelectedExercise(null);
+          }}
+          onExerciseUpdated={handleExerciseUpdated}
+          onDelete={removeExercise}
+        />
+
+        {/* Exercise Detail Modal */}
+        <ExerciseDetailModal
+          isOpen={isDetailModalOpen}
+          exercise={selectedExercise}
+          onClose={() => {
+            setIsDetailModalOpen(false);
+            setSelectedExercise(null);
+          }}
+          onEdit={(exercise) => {
+            setSelectedExercise(exercise);
+            setIsDetailModalOpen(false);
+            setIsEditModalOpen(true);
+          }}
+          onDelete={removeExercise}
         />
       </div>
     </ProtectedRoute>

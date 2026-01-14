@@ -12,33 +12,21 @@
 
 'use client';
 
-import React, { useState } from 'react';
+import React from 'react';
 import { Exercise } from '@/types';
-import { Trash2, Edit2, Dumbbell } from 'lucide-react';
+import { Dumbbell } from 'lucide-react';
 
 interface ExerciseCardProps {
   exercise: Exercise;
-  onDelete: () => void;
   onEdit?: (exercise: Exercise) => void;
+  onViewDetail?: (exercise: Exercise) => void;
 }
 
 /**
  * ExerciseCard Component
  * Displays exercise information in a card format
  */
-const ExerciseCard: React.FC<ExerciseCardProps> = ({ exercise, onDelete, onEdit }) => {
-  const [isDeleting, setIsDeleting] = useState(false);
-
-  const handleDelete = async () => {
-    if (window.confirm(`Delete "${exercise.name}"?`)) {
-      try {
-        setIsDeleting(true);
-        await onDelete();
-      } finally {
-        setIsDeleting(false);
-      }
-    }
-  };
+const ExerciseCard: React.FC<ExerciseCardProps> = ({ exercise, onEdit, onViewDetail }) => {
 
   const getDifficultyColor = (difficulty: string) => {
     switch (difficulty) {
@@ -54,7 +42,10 @@ const ExerciseCard: React.FC<ExerciseCardProps> = ({ exercise, onDelete, onEdit 
   };
 
   return (
-    <div className="bg-slate-800 rounded-lg border border-slate-700 hover:border-green-500/50 transition p-6 group">
+    <div 
+      onClick={() => onViewDetail?.(exercise)}
+      className="bg-slate-800 rounded-lg border border-slate-700 hover:border-green-500/50 transition p-6 group cursor-pointer"
+    >
       {/* Header */}
       <div className="flex items-start justify-between mb-4">
         <div className="flex items-start gap-3 flex-1">
@@ -115,27 +106,6 @@ const ExerciseCard: React.FC<ExerciseCardProps> = ({ exercise, onDelete, onEdit 
           })}
         </span>
         {exercise.aiGenerated && <span className="text-blue-400">AI Generated</span>}
-      </div>
-
-      {/* Actions */}
-      <div className="flex gap-2">
-        {onEdit && (
-          <button
-            onClick={() => onEdit(exercise)}
-            className="flex-1 px-3 py-2 bg-slate-700 hover:bg-slate-600 text-slate-300 font-medium rounded-lg transition flex items-center justify-center gap-2 text-sm"
-          >
-            <Edit2 className="w-4 h-4" />
-            Edit
-          </button>
-        )}
-        <button
-          onClick={handleDelete}
-          disabled={isDeleting}
-          className="flex-1 px-3 py-2 bg-red-600/10 hover:bg-red-600/20 border border-red-600/20 text-red-400 font-medium rounded-lg transition flex items-center justify-center gap-2 text-sm disabled:opacity-50 disabled:cursor-not-allowed"
-        >
-          <Trash2 className="w-4 h-4" />
-          {isDeleting ? 'Deleting...' : 'Delete'}
-        </button>
       </div>
     </div>
   );

@@ -41,6 +41,8 @@ const createExerciseSchema = z.object({
   description: z.string().optional(),
   instructions: z.string().optional(),
   difficulty: z.enum(['beginner', 'intermediate', 'advanced']),
+  defaultReps: z.number().int().positive('Reps must be a positive number').optional(),
+  defaultSets: z.number().int().positive('Sets must be a positive number').optional(),
 });
 
 type CreateExerciseFormData = z.infer<typeof createExerciseSchema>;
@@ -78,6 +80,8 @@ const CreateExerciseModal: React.FC<CreateExerciseModalProps> = ({
       instructions:
         'Do 3 sets of 15 slow squats with 3 seconds down and rapid up. 30 second pause between sets.',
       difficulty: 'beginner',
+      defaultSets: 3,
+      defaultReps: 12,
     },
   });
 
@@ -245,6 +249,49 @@ const CreateExerciseModal: React.FC<CreateExerciseModalProps> = ({
             {selectedGroups.length === 0 && (
               <p className="mt-1 text-sm text-red-400">Select at least one muscle group</p>
             )}
+          </div>
+
+          {/* Default Sets and Reps */}
+          <div className="grid grid-cols-2 gap-4">
+            {/* Default Sets */}
+            <div>
+              <label htmlFor="defaultSets" className="block text-sm font-medium text-slate-200 mb-2">
+                Default Sets
+              </label>
+              <input
+                {...register('defaultSets', { valueAsNumber: true })}
+                type="number"
+                id="defaultSets"
+                min="1"
+                max="10"
+                placeholder="3"
+                className="w-full px-4 py-2 bg-slate-700 border border-slate-600 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:border-green-500 focus:ring-2 focus:ring-green-500/20 transition"
+                disabled={isLoading}
+              />
+              {errors.defaultSets && (
+                <p className="mt-1 text-sm text-red-400">{errors.defaultSets.message}</p>
+              )}
+            </div>
+
+            {/* Default Reps */}
+            <div>
+              <label htmlFor="defaultReps" className="block text-sm font-medium text-slate-200 mb-2">
+                Default Reps
+              </label>
+              <input
+                {...register('defaultReps', { valueAsNumber: true })}
+                type="number"
+                id="defaultReps"
+                min="1"
+                max="100"
+                placeholder="12"
+                className="w-full px-4 py-2 bg-slate-700 border border-slate-600 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:border-green-500 focus:ring-2 focus:ring-green-500/20 transition"
+                disabled={isLoading}
+              />
+              {errors.defaultReps && (
+                <p className="mt-1 text-sm text-red-400">{errors.defaultReps.message}</p>
+              )}
+            </div>
           </div>
 
           {/* Buttons */}

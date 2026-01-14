@@ -9,5 +9,6 @@
 
 
 Backlog
+1. Limit to 10 users 
 1. in the mobile version the calendar is not suitable we would need 
    a google styled one

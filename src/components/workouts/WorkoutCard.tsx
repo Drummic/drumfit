@@ -1,28 +1,16 @@
 'use client';
 
-import React, { useState } from 'react';
+import React from 'react';
 import { Workout } from '@/types';
-import { Trash2, Zap, Clock, Play } from 'lucide-react';
+import { Zap, Clock, Play } from 'lucide-react';
 import Link from 'next/link';
 
 interface WorkoutCardProps {
   workout: Workout;
-  onDelete: () => void;
+  onViewDetail?: (workout: Workout) => void;
 }
 
-const WorkoutCard: React.FC<WorkoutCardProps> = ({ workout, onDelete }) => {
-  const [isDeleting, setIsDeleting] = useState(false);
-
-  const handleDelete = async () => {
-    if (window.confirm(`Delete "${workout.name}"?`)) {
-      try {
-        setIsDeleting(true);
-        await onDelete();
-      } finally {
-        setIsDeleting(false);
-      }
-    }
-  };
+const WorkoutCard: React.FC<WorkoutCardProps> = ({ workout, onViewDetail }) => {
 
   const getDurationColor = (duration: string) => {
     switch (duration) {
@@ -53,7 +41,10 @@ const WorkoutCard: React.FC<WorkoutCardProps> = ({ workout, onDelete }) => {
   const colors = getDurationColor(workout.duration);
 
   return (
-    <div className="bg-slate-800 rounded-lg border border-slate-700 hover:border-blue-500/50 transition p-6 group">
+    <div 
+      onClick={() => onViewDetail?.(workout)}
+      className="bg-slate-800 rounded-lg border border-slate-700 hover:border-blue-500/50 transition p-6 group cursor-pointer"
+    >
       {/* Header */}
       <div className="flex items-start justify-between mb-4">
         <div className="flex items-start gap-3 flex-1">
@@ -117,19 +108,11 @@ const WorkoutCard: React.FC<WorkoutCardProps> = ({ workout, onDelete }) => {
       <div className="flex gap-2">
         <Link
           href={`/workouts/${workout.id}/run`}
-          className="flex-1 px-3 py-2 bg-green-600 hover:bg-green-700 text-white font-medium rounded-lg transition flex items-center justify-center gap-2 text-sm"
+          className="w-full px-3 py-2 bg-green-600 hover:bg-green-700 text-white font-medium rounded-lg transition flex items-center justify-center gap-2 text-sm"
         >
           <Play className="w-4 h-4" />
           Start Workout
         </Link>
-        <button
-          onClick={handleDelete}
-          disabled={isDeleting}
-          className="px-3 py-2 bg-red-600/10 hover:bg-red-600/20 border border-red-600/20 text-red-400 font-medium rounded-lg transition flex items-center justify-center gap-2 text-sm disabled:opacity-50 disabled:cursor-not-allowed"
-        >
-          <Trash2 className="w-4 h-4" />
-          {isDeleting ? 'Deleting...' : 'Delete'}
-        </button>
       </div>
     </div>
   );

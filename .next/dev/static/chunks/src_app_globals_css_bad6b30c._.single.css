@@ -76,11 +76,13 @@
     --color-red-900: #82181a;
     --color-orange-200: #ffd7a8;
     --color-orange-300: #ffb96d;
+    --color-orange-400: #ff8b1a;
     --color-orange-500: #fe6e00;
     --color-orange-600: #f05100;
     --color-orange-700: #c53c00;
     --color-orange-800: #9f2d00;
     --color-orange-900: #7e2a0c;
+    --color-amber-400: #fcbb00;
     --color-yellow-400: #fac800;
     --color-yellow-500: #edb200;
     --color-green-100: #dcfce7;
@@ -185,11 +187,13 @@
       --color-red-900: lab(28.5139% 44.5539 29.0463);
       --color-orange-200: lab(88.4871% 9.94918 28.8378);
       --color-orange-300: lab(80.8059% 21.7313 50.4455);
+      --color-orange-400: lab(70.0429% 42.5156 75.8207);
       --color-orange-500: lab(64.272% 57.1788 90.3583);
       --color-orange-600: lab(57.1026% 64.2584 89.8886);
       --color-orange-700: lab(46.4615% 57.7275 70.8507);
       --color-orange-800: lab(37.1566% 46.6433 50.5562);
       --color-orange-900: lab(30.2951% 36.0434 37.671);
+      --color-amber-400: lab(80.1641% 16.6016 99.2089);
       --color-yellow-400: lab(83.2664% 8.65132 106.895);
       --color-yellow-500: lab(76.3898% 14.5258 98.4589);
       --color-green-100: lab(96.1861% -13.8464 6.52365);
@@ -534,6 +538,10 @@
     z-index: 50;
   }
 
+  .mx-4 {
+    margin-inline: calc(var(--spacing) * 4);
+  }
+
   .mx-auto {
     margin-inline: auto;
   }
@@ -709,6 +717,10 @@
     width: calc(var(--spacing) * 12);
   }
 
+  .w-16 {
+    width: calc(var(--spacing) * 16);
+  }
+
   .w-20 {
     width: calc(var(--spacing) * 20);
   }
@@ -783,6 +795,10 @@
 
   .grid-cols-3 {
     grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .grid-cols-4 {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 
   .grid-cols-7 {
@@ -1151,6 +1167,10 @@
     }
   }
 
+  .bg-red-600 {
+    background-color: var(--color-red-600);
+  }
+
   .bg-red-600\/10 {
     background-color: #e400141a;
   }
@@ -1158,6 +1178,16 @@
   @supports (color: color-mix(in lab, red, red)) {
     .bg-red-600\/10 {
       background-color: color-mix(in oklab, var(--color-red-600) 10%, transparent);
+    }
+  }
+
+  .bg-red-600\/20 {
+    background-color: #e4001433;
+  }
+
+  @supports (color: color-mix(in lab, red, red)) {
+    .bg-red-600\/20 {
+      background-color: color-mix(in oklab, var(--color-red-600) 20%, transparent);
     }
   }
 
@@ -1177,6 +1207,16 @@
 
   .bg-slate-700 {
     background-color: var(--color-slate-700);
+  }
+
+  .bg-slate-700\/30 {
+    background-color: #3141584d;
+  }
+
+  @supports (color: color-mix(in lab, red, red)) {
+    .bg-slate-700\/30 {
+      background-color: color-mix(in oklab, var(--color-slate-700) 30%, transparent);
+    }
   }
 
   .bg-slate-700\/50 {
@@ -1405,6 +1445,10 @@
     padding-block: calc(var(--spacing) * 12);
   }
 
+  .py-16 {
+    padding-block: calc(var(--spacing) * 16);
+  }
+
   .pt-4 {
     padding-top: calc(var(--spacing) * 4);
   }
@@ -1520,6 +1564,10 @@
     white-space: nowrap;
   }
 
+  .text-amber-400 {
+    color: var(--color-amber-400);
+  }
+
   .text-blue-100 {
     color: var(--color-blue-100);
   }
@@ -1538,6 +1586,10 @@
 
   .text-blue-500 {
     color: var(--color-blue-500);
+  }
+
+  .text-blue-600 {
+    color: var(--color-blue-600);
   }
 
   .text-gray-900 {
@@ -1582,6 +1634,10 @@
 
   .text-orange-300 {
     color: var(--color-orange-300);
+  }
+
+  .text-orange-400 {
+    color: var(--color-orange-400);
   }
 
   .text-orange-500 {
@@ -1646,6 +1702,10 @@
 
   .uppercase {
     text-transform: uppercase;
+  }
+
+  .italic {
+    font-style: italic;
   }
 
   .tabular-nums {
@@ -1735,18 +1795,6 @@
   }
 
   @media (hover: hover) {
-    .group-hover\:bg-green-500\/20:is(:where(.group):hover *) {
-      background-color: #00c75833;
-    }
-
-    @supports (color: color-mix(in lab, red, red)) {
-      .group-hover\:bg-green-500\/20:is(:where(.group):hover *) {
-        background-color: color-mix(in oklab, var(--color-green-500) 20%, transparent);
-      }
-    }
-  }
-
-  @media (hover: hover) {
     .group-hover\:bg-orange-500\/20:is(:where(.group):hover *) {
       background-color: #fe6e0033;
     }
@@ -1796,12 +1844,6 @@
       .hover\:border-blue-500\/50:hover {
         border-color: color-mix(in oklab, var(--color-blue-500) 50%, transparent);
       }
-    }
-  }
-
-  @media (hover: hover) {
-    .hover\:border-green-500:hover {
-      border-color: var(--color-green-500);
     }
   }
 
@@ -1866,6 +1908,24 @@
   }
 
   @media (hover: hover) {
+    .hover\:bg-red-600\/30:hover {
+      background-color: #e400144d;
+    }
+
+    @supports (color: color-mix(in lab, red, red)) {
+      .hover\:bg-red-600\/30:hover {
+        background-color: color-mix(in oklab, var(--color-red-600) 30%, transparent);
+      }
+    }
+  }
+
+  @media (hover: hover) {
+    .hover\:bg-red-700:hover {
+      background-color: var(--color-red-700);
+    }
+  }
+
+  @media (hover: hover) {
     .hover\:bg-slate-600:hover {
       background-color: var(--color-slate-600);
     }
@@ -1897,9 +1957,17 @@
     border-color: var(--color-green-500);
   }
 
+  .focus\:border-orange-500:focus {
+    border-color: var(--color-orange-500);
+  }
+
   .focus\:ring-2:focus {
     --tw-ring-shadow: var(--tw-ring-inset, ) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color, currentcolor);
     box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+  }
+
+  .focus\:ring-blue-500:focus {
+    --tw-ring-color: var(--color-blue-500);
   }
 
   .focus\:ring-blue-500\/20:focus {
@@ -1926,6 +1994,16 @@
     }
   }
 
+  .focus\:ring-orange-500\/20:focus {
+    --tw-ring-color: #fe6e0033;
+  }
+
+  @supports (color: color-mix(in lab, red, red)) {
+    .focus\:ring-orange-500\/20:focus {
+      --tw-ring-color: color-mix(in oklab, var(--color-orange-500) 20%, transparent);
+    }
+  }
+
   .focus\:outline-none:focus {
     --tw-outline-style: none;
     outline-style: none;
@@ -1935,16 +2013,16 @@
     cursor: not-allowed;
   }
 
-  .disabled\:bg-blue-800:disabled {
-    background-color: var(--color-blue-800);
-  }
-
   .disabled\:bg-gray-300:disabled {
     background-color: var(--color-gray-300);
   }
 
   .disabled\:bg-gray-700:disabled {
     background-color: var(--color-gray-700);
+  }
+
+  .disabled\:bg-red-700:disabled {
+    background-color: var(--color-red-700);
   }
 
   .disabled\:bg-slate-600:disabled {

@@ -28,6 +28,10 @@ export interface Exercise {
   muscleGroups: string[];
   difficulty: 'beginner' | 'intermediate' | 'advanced';
   instructions?: string;
+  defaultSets?: number;
+  defaultReps?: number;
+  defaultDuration?: number; // in seconds, e.g., 45 for 45 seconds
+  useTime?: boolean; // true if exercise uses time-based sets (e.g., 3 x 45s), false for reps
   aiGenerated: boolean;
   imageUrl?: string;
   createdAt: string;
@@ -49,9 +53,11 @@ export interface WorkoutExercise {
   exerciseId: string;
   exerciseName: string;
   sets: number;
-  reps: number;
+  reps?: number;
   weight?: number;
   notes?: string;
+  timeValue?: number; // For time-based exercises (e.g., 45 for 45 seconds or 2 for 2 minutes)
+  timeUnit?: 'seconds' | 'minutes'; // Unit for time-based exercises
 }
 
 export interface Workout {

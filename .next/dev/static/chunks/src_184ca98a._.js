@@ -670,6 +670,7 @@ __turbopack_context__.s([
 ]);
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/jsx-dev-runtime.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$compiler$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/compiler-runtime.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/navigation.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$context$2f$AuthContext$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/context/AuthContext.tsx [app-client] (ecmascript)");
 ;
@@ -689,22 +690,46 @@ var _s = __turbopack_context__.k.signature();
 ;
 ;
 ;
+;
 const ProtectedRoute = (t0)=>{
     _s();
-    const $ = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$compiler$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["c"])(4);
-    if ($[0] !== "b76441e2f3a408e9c72aa4f0b33b9c9a264159cfbbda641c73165788ac65ceed") {
-        for(let $i = 0; $i < 4; $i += 1){
+    const $ = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$compiler$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["c"])(9);
+    if ($[0] !== "4e1a1ec6d792875016bbdac09a12e6ca7dd2929ca38924417b8fca2b0901f856") {
+        for(let $i = 0; $i < 9; $i += 1){
             $[$i] = Symbol.for("react.memo_cache_sentinel");
         }
-        $[0] = "b76441e2f3a408e9c72aa4f0b33b9c9a264159cfbbda641c73165788ac65ceed";
+        $[0] = "4e1a1ec6d792875016bbdac09a12e6ca7dd2929ca38924417b8fca2b0901f856";
     }
     const { children } = t0;
     const router = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRouter"])();
     const { isAuthenticated, loading } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$context$2f$AuthContext$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useAuth"])();
+    let t1;
+    let t2;
+    if ($[1] !== isAuthenticated || $[2] !== loading || $[3] !== router) {
+        t1 = ()=>{
+            if (!loading && !isAuthenticated) {
+                router.push("/login");
+            }
+        };
+        t2 = [
+            isAuthenticated,
+            loading,
+            router
+        ];
+        $[1] = isAuthenticated;
+        $[2] = loading;
+        $[3] = router;
+        $[4] = t1;
+        $[5] = t2;
+    } else {
+        t1 = $[4];
+        t2 = $[5];
+    }
+    (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])(t1, t2);
     if (loading) {
-        let t1;
-        if ($[1] === Symbol.for("react.memo_cache_sentinel")) {
-            t1 = /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+        let t3;
+        if ($[6] === Symbol.for("react.memo_cache_sentinel")) {
+            t3 = /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 className: "min-h-screen bg-gradient-to-br from-slate-900 to-slate-800 flex items-center justify-center",
                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                     className: "text-center",
@@ -713,7 +738,7 @@ const ProtectedRoute = (t0)=>{
                             className: "w-12 h-12 border-4 border-blue-500 border-t-transparent rounded-full animate-spin mx-auto mb-4"
                         }, void 0, false, {
                             fileName: "[project]/src/components/ProtectedRoute.tsx",
-                            lineNumber: 48,
+                            lineNumber: 67,
                             columnNumber: 150
                         }, ("TURBOPACK compile-time value", void 0)),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -721,43 +746,42 @@ const ProtectedRoute = (t0)=>{
                             children: "Loading..."
                         }, void 0, false, {
                             fileName: "[project]/src/components/ProtectedRoute.tsx",
-                            lineNumber: 48,
+                            lineNumber: 67,
                             columnNumber: 264
                         }, ("TURBOPACK compile-time value", void 0))
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/components/ProtectedRoute.tsx",
-                    lineNumber: 48,
+                    lineNumber: 67,
                     columnNumber: 121
                 }, ("TURBOPACK compile-time value", void 0))
             }, void 0, false, {
                 fileName: "[project]/src/components/ProtectedRoute.tsx",
-                lineNumber: 48,
+                lineNumber: 67,
                 columnNumber: 12
             }, ("TURBOPACK compile-time value", void 0));
-            $[1] = t1;
+            $[6] = t3;
         } else {
-            t1 = $[1];
+            t3 = $[6];
         }
-        return t1;
+        return t3;
     }
     if (!isAuthenticated) {
-        router.push("/login");
         return null;
     }
-    let t1;
-    if ($[2] !== children) {
-        t1 = /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Fragment"], {
+    let t3;
+    if ($[7] !== children) {
+        t3 = /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Fragment"], {
             children: children
         }, void 0, false);
-        $[2] = children;
-        $[3] = t1;
+        $[7] = children;
+        $[8] = t3;
     } else {
-        t1 = $[3];
+        t3 = $[8];
     }
-    return t1;
+    return t3;
 };
-_s(ProtectedRoute, "DaFcG1qmcv6lysWWWqka/J1ae2w=", false, function() {
+_s(ProtectedRoute, "gVtt4lujjvRz8CDMGpQPojomFRs=", false, function() {
     return [
         __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRouter"],
         __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$context$2f$AuthContext$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useAuth"]
@@ -828,7 +852,9 @@ const createExerciseSchema = __TURBOPACK__imported__module__$5b$project$5d2f$nod
         'beginner',
         'intermediate',
         'advanced'
-    ])
+    ]),
+    defaultReps: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$zod$2f$v3$2f$types$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["number"]().int().positive('Reps must be a positive number').optional(),
+    defaultSets: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$zod$2f$v3$2f$types$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["number"]().int().positive('Sets must be a positive number').optional()
 });
 /**
  * CreateExerciseModal Component
@@ -846,7 +872,9 @@ const createExerciseSchema = __TURBOPACK__imported__module__$5b$project$5d2f$nod
             name: 'Air Squats',
             description: 'Medium deep squats without any additional weight',
             instructions: 'Do 3 sets of 15 slow squats with 3 seconds down and rapid up. 30 second pause between sets.',
-            difficulty: 'beginner'
+            difficulty: 'beginner',
+            defaultSets: 3,
+            defaultReps: 12
         }
     });
     const difficulty = watch('difficulty');
@@ -902,7 +930,7 @@ const createExerciseSchema = __TURBOPACK__imported__module__$5b$project$5d2f$nod
                             children: "Create Exercise"
                         }, void 0, false, {
                             fileName: "[project]/src/components/exercises/CreateExerciseModal.tsx",
-                            lineNumber: 103,
+                            lineNumber: 107,
                             columnNumber: 11
                         }, ("TURBOPACK compile-time value", void 0)),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -912,18 +940,18 @@ const createExerciseSchema = __TURBOPACK__imported__module__$5b$project$5d2f$nod
                                 className: "w-5 h-5"
                             }, void 0, false, {
                                 fileName: "[project]/src/components/exercises/CreateExerciseModal.tsx",
-                                lineNumber: 105,
+                                lineNumber: 109,
                                 columnNumber: 13
                             }, ("TURBOPACK compile-time value", void 0))
                         }, void 0, false, {
                             fileName: "[project]/src/components/exercises/CreateExerciseModal.tsx",
-                            lineNumber: 104,
+                            lineNumber: 108,
                             columnNumber: 11
                         }, ("TURBOPACK compile-time value", void 0))
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/components/exercises/CreateExerciseModal.tsx",
-                    lineNumber: 102,
+                    lineNumber: 106,
                     columnNumber: 9
                 }, ("TURBOPACK compile-time value", void 0)),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("form", {
@@ -938,7 +966,7 @@ const createExerciseSchema = __TURBOPACK__imported__module__$5b$project$5d2f$nod
                                     children: "Exercise Name *"
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/exercises/CreateExerciseModal.tsx",
-                                    lineNumber: 113,
+                                    lineNumber: 117,
                                     columnNumber: 13
                                 }, ("TURBOPACK compile-time value", void 0)),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -950,7 +978,7 @@ const createExerciseSchema = __TURBOPACK__imported__module__$5b$project$5d2f$nod
                                     disabled: isLoading
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/exercises/CreateExerciseModal.tsx",
-                                    lineNumber: 116,
+                                    lineNumber: 120,
                                     columnNumber: 13
                                 }, ("TURBOPACK compile-time value", void 0)),
                                 errors.name && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -958,13 +986,13 @@ const createExerciseSchema = __TURBOPACK__imported__module__$5b$project$5d2f$nod
                                     children: errors.name.message
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/exercises/CreateExerciseModal.tsx",
-                                    lineNumber: 117,
+                                    lineNumber: 121,
                                     columnNumber: 29
                                 }, ("TURBOPACK compile-time value", void 0))
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/components/exercises/CreateExerciseModal.tsx",
-                            lineNumber: 112,
+                            lineNumber: 116,
                             columnNumber: 11
                         }, ("TURBOPACK compile-time value", void 0)),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -975,7 +1003,7 @@ const createExerciseSchema = __TURBOPACK__imported__module__$5b$project$5d2f$nod
                                     children: "Description"
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/exercises/CreateExerciseModal.tsx",
-                                    lineNumber: 122,
+                                    lineNumber: 126,
                                     columnNumber: 13
                                 }, ("TURBOPACK compile-time value", void 0)),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("textarea", {
@@ -987,7 +1015,7 @@ const createExerciseSchema = __TURBOPACK__imported__module__$5b$project$5d2f$nod
                                     disabled: isLoading
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/exercises/CreateExerciseModal.tsx",
-                                    lineNumber: 125,
+                                    lineNumber: 129,
                                     columnNumber: 13
                                 }, ("TURBOPACK compile-time value", void 0)),
                                 errors.description && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -995,13 +1023,13 @@ const createExerciseSchema = __TURBOPACK__imported__module__$5b$project$5d2f$nod
                                     children: errors.description.message
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/exercises/CreateExerciseModal.tsx",
-                                    lineNumber: 126,
+                                    lineNumber: 130,
                                     columnNumber: 36
                                 }, ("TURBOPACK compile-time value", void 0))
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/components/exercises/CreateExerciseModal.tsx",
-                            lineNumber: 121,
+                            lineNumber: 125,
                             columnNumber: 11
                         }, ("TURBOPACK compile-time value", void 0)),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1012,7 +1040,7 @@ const createExerciseSchema = __TURBOPACK__imported__module__$5b$project$5d2f$nod
                                     children: "Instructions"
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/exercises/CreateExerciseModal.tsx",
-                                    lineNumber: 131,
+                                    lineNumber: 135,
                                     columnNumber: 13
                                 }, ("TURBOPACK compile-time value", void 0)),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("textarea", {
@@ -1024,7 +1052,7 @@ const createExerciseSchema = __TURBOPACK__imported__module__$5b$project$5d2f$nod
                                     disabled: isLoading
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/exercises/CreateExerciseModal.tsx",
-                                    lineNumber: 134,
+                                    lineNumber: 138,
                                     columnNumber: 13
                                 }, ("TURBOPACK compile-time value", void 0)),
                                 errors.instructions && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1032,13 +1060,13 @@ const createExerciseSchema = __TURBOPACK__imported__module__$5b$project$5d2f$nod
                                     children: errors.instructions.message
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/exercises/CreateExerciseModal.tsx",
-                                    lineNumber: 135,
+                                    lineNumber: 139,
                                     columnNumber: 37
                                 }, ("TURBOPACK compile-time value", void 0))
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/components/exercises/CreateExerciseModal.tsx",
-                            lineNumber: 130,
+                            lineNumber: 134,
                             columnNumber: 11
                         }, ("TURBOPACK compile-time value", void 0)),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1048,7 +1076,7 @@ const createExerciseSchema = __TURBOPACK__imported__module__$5b$project$5d2f$nod
                                     children: "Difficulty Level *"
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/exercises/CreateExerciseModal.tsx",
-                                    lineNumber: 140,
+                                    lineNumber: 144,
                                     columnNumber: 13
                                 }, ("TURBOPACK compile-time value", void 0)),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1068,7 +1096,7 @@ const createExerciseSchema = __TURBOPACK__imported__module__$5b$project$5d2f$nod
                                                     disabled: isLoading
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/components/exercises/CreateExerciseModal.tsx",
-                                                    lineNumber: 145,
+                                                    lineNumber: 149,
                                                     columnNumber: 19
                                                 }, ("TURBOPACK compile-time value", void 0)),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1076,18 +1104,18 @@ const createExerciseSchema = __TURBOPACK__imported__module__$5b$project$5d2f$nod
                                                     children: level
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/components/exercises/CreateExerciseModal.tsx",
-                                                    lineNumber: 146,
+                                                    lineNumber: 150,
                                                     columnNumber: 19
                                                 }, ("TURBOPACK compile-time value", void 0))
                                             ]
                                         }, level, true, {
                                             fileName: "[project]/src/components/exercises/CreateExerciseModal.tsx",
-                                            lineNumber: 144,
+                                            lineNumber: 148,
                                             columnNumber: 70
                                         }, ("TURBOPACK compile-time value", void 0)))
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/exercises/CreateExerciseModal.tsx",
-                                    lineNumber: 143,
+                                    lineNumber: 147,
                                     columnNumber: 13
                                 }, ("TURBOPACK compile-time value", void 0)),
                                 errors.difficulty && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1095,13 +1123,13 @@ const createExerciseSchema = __TURBOPACK__imported__module__$5b$project$5d2f$nod
                                     children: errors.difficulty.message
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/exercises/CreateExerciseModal.tsx",
-                                    lineNumber: 149,
+                                    lineNumber: 153,
                                     columnNumber: 35
                                 }, ("TURBOPACK compile-time value", void 0))
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/components/exercises/CreateExerciseModal.tsx",
-                            lineNumber: 139,
+                            lineNumber: 143,
                             columnNumber: 11
                         }, ("TURBOPACK compile-time value", void 0)),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1115,7 +1143,7 @@ const createExerciseSchema = __TURBOPACK__imported__module__$5b$project$5d2f$nod
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/components/exercises/CreateExerciseModal.tsx",
-                                    lineNumber: 154,
+                                    lineNumber: 158,
                                     columnNumber: 13
                                 }, ("TURBOPACK compile-time value", void 0)),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1128,12 +1156,12 @@ const createExerciseSchema = __TURBOPACK__imported__module__$5b$project$5d2f$nod
                                             children: group_0
                                         }, group_0, false, {
                                             fileName: "[project]/src/components/exercises/CreateExerciseModal.tsx",
-                                            lineNumber: 158,
+                                            lineNumber: 162,
                                             columnNumber: 45
                                         }, ("TURBOPACK compile-time value", void 0)))
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/exercises/CreateExerciseModal.tsx",
-                                    lineNumber: 157,
+                                    lineNumber: 161,
                                     columnNumber: 13
                                 }, ("TURBOPACK compile-time value", void 0)),
                                 selectedGroups.length === 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1141,13 +1169,104 @@ const createExerciseSchema = __TURBOPACK__imported__module__$5b$project$5d2f$nod
                                     children: "Select at least one muscle group"
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/exercises/CreateExerciseModal.tsx",
-                                    lineNumber: 162,
+                                    lineNumber: 166,
                                     columnNumber: 45
                                 }, ("TURBOPACK compile-time value", void 0))
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/components/exercises/CreateExerciseModal.tsx",
-                            lineNumber: 153,
+                            lineNumber: 157,
+                            columnNumber: 11
+                        }, ("TURBOPACK compile-time value", void 0)),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                            className: "grid grid-cols-2 gap-4",
+                            children: [
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                    children: [
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
+                                            htmlFor: "defaultSets",
+                                            className: "block text-sm font-medium text-slate-200 mb-2",
+                                            children: "Default Sets"
+                                        }, void 0, false, {
+                                            fileName: "[project]/src/components/exercises/CreateExerciseModal.tsx",
+                                            lineNumber: 173,
+                                            columnNumber: 15
+                                        }, ("TURBOPACK compile-time value", void 0)),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                                            ...register('defaultSets', {
+                                                valueAsNumber: true
+                                            }),
+                                            type: "number",
+                                            id: "defaultSets",
+                                            min: "1",
+                                            max: "10",
+                                            placeholder: "3",
+                                            className: "w-full px-4 py-2 bg-slate-700 border border-slate-600 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:border-green-500 focus:ring-2 focus:ring-green-500/20 transition",
+                                            disabled: isLoading
+                                        }, void 0, false, {
+                                            fileName: "[project]/src/components/exercises/CreateExerciseModal.tsx",
+                                            lineNumber: 176,
+                                            columnNumber: 15
+                                        }, ("TURBOPACK compile-time value", void 0)),
+                                        errors.defaultSets && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                            className: "mt-1 text-sm text-red-400",
+                                            children: errors.defaultSets.message
+                                        }, void 0, false, {
+                                            fileName: "[project]/src/components/exercises/CreateExerciseModal.tsx",
+                                            lineNumber: 179,
+                                            columnNumber: 38
+                                        }, ("TURBOPACK compile-time value", void 0))
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "[project]/src/components/exercises/CreateExerciseModal.tsx",
+                                    lineNumber: 172,
+                                    columnNumber: 13
+                                }, ("TURBOPACK compile-time value", void 0)),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                    children: [
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
+                                            htmlFor: "defaultReps",
+                                            className: "block text-sm font-medium text-slate-200 mb-2",
+                                            children: "Default Reps"
+                                        }, void 0, false, {
+                                            fileName: "[project]/src/components/exercises/CreateExerciseModal.tsx",
+                                            lineNumber: 184,
+                                            columnNumber: 15
+                                        }, ("TURBOPACK compile-time value", void 0)),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                                            ...register('defaultReps', {
+                                                valueAsNumber: true
+                                            }),
+                                            type: "number",
+                                            id: "defaultReps",
+                                            min: "1",
+                                            max: "100",
+                                            placeholder: "12",
+                                            className: "w-full px-4 py-2 bg-slate-700 border border-slate-600 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:border-green-500 focus:ring-2 focus:ring-green-500/20 transition",
+                                            disabled: isLoading
+                                        }, void 0, false, {
+                                            fileName: "[project]/src/components/exercises/CreateExerciseModal.tsx",
+                                            lineNumber: 187,
+                                            columnNumber: 15
+                                        }, ("TURBOPACK compile-time value", void 0)),
+                                        errors.defaultReps && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                            className: "mt-1 text-sm text-red-400",
+                                            children: errors.defaultReps.message
+                                        }, void 0, false, {
+                                            fileName: "[project]/src/components/exercises/CreateExerciseModal.tsx",
+                                            lineNumber: 190,
+                                            columnNumber: 38
+                                        }, ("TURBOPACK compile-time value", void 0))
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "[project]/src/components/exercises/CreateExerciseModal.tsx",
+                                    lineNumber: 183,
+                                    columnNumber: 13
+                                }, ("TURBOPACK compile-time value", void 0))
+                            ]
+                        }, void 0, true, {
+                            fileName: "[project]/src/components/exercises/CreateExerciseModal.tsx",
+                            lineNumber: 170,
                             columnNumber: 11
                         }, ("TURBOPACK compile-time value", void 0)),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1161,7 +1280,7 @@ const createExerciseSchema = __TURBOPACK__imported__module__$5b$project$5d2f$nod
                                     children: "Cancel"
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/exercises/CreateExerciseModal.tsx",
-                                    lineNumber: 167,
+                                    lineNumber: 196,
                                     columnNumber: 13
                                 }, ("TURBOPACK compile-time value", void 0)),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -1174,7 +1293,7 @@ const createExerciseSchema = __TURBOPACK__imported__module__$5b$project$5d2f$nod
                                                 className: "w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/exercises/CreateExerciseModal.tsx",
-                                                lineNumber: 172,
+                                                lineNumber: 201,
                                                 columnNumber: 19
                                             }, ("TURBOPACK compile-time value", void 0)),
                                             "Creating..."
@@ -1185,7 +1304,7 @@ const createExerciseSchema = __TURBOPACK__imported__module__$5b$project$5d2f$nod
                                                 className: "w-5 h-5"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/exercises/CreateExerciseModal.tsx",
-                                                lineNumber: 175,
+                                                lineNumber: 204,
                                                 columnNumber: 19
                                             }, ("TURBOPACK compile-time value", void 0)),
                                             "Create Exercise"
@@ -1193,30 +1312,30 @@ const createExerciseSchema = __TURBOPACK__imported__module__$5b$project$5d2f$nod
                                     }, void 0, true)
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/exercises/CreateExerciseModal.tsx",
-                                    lineNumber: 170,
+                                    lineNumber: 199,
                                     columnNumber: 13
                                 }, ("TURBOPACK compile-time value", void 0))
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/components/exercises/CreateExerciseModal.tsx",
-                            lineNumber: 166,
+                            lineNumber: 195,
                             columnNumber: 11
                         }, ("TURBOPACK compile-time value", void 0))
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/components/exercises/CreateExerciseModal.tsx",
-                    lineNumber: 110,
+                    lineNumber: 114,
                     columnNumber: 9
                 }, ("TURBOPACK compile-time value", void 0))
             ]
         }, void 0, true, {
             fileName: "[project]/src/components/exercises/CreateExerciseModal.tsx",
-            lineNumber: 100,
+            lineNumber: 104,
             columnNumber: 7
         }, ("TURBOPACK compile-time value", void 0))
     }, void 0, false, {
         fileName: "[project]/src/components/exercises/CreateExerciseModal.tsx",
-        lineNumber: 99,
+        lineNumber: 103,
         columnNumber: 10
     }, ("TURBOPACK compile-time value", void 0));
 };

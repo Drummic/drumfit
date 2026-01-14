@@ -19,11 +19,15 @@ import { useWorkout } from '@/hooks/useWorkout';
 import ProtectedRoute from '@/components/ProtectedRoute';
 import CreateExerciseModal from '@/components/exercises/CreateExerciseModal';
 import CreateWorkoutModal from '@/components/workouts/CreateWorkoutModal';
+import EditWorkoutModal from '@/components/workouts/EditWorkoutModal';
 import ExerciseCard from '@/components/exercises/ExerciseCard';
 import WorkoutCard from '@/components/workouts/WorkoutCard';
 import { Plus, Dumbbell, ArrowLeft, Zap, Sparkles } from 'lucide-react';
 import Link from 'next/link';
 import { getSampleWorkouts } from '@/services/sampleWorkoutsService';
+import { Exercise, Workout } from '@/types';
+import ExerciseDetailModal from '@/components/exercises/ExerciseDetailModal';
+import EditExerciseModal from '@/components/exercises/EditExerciseModal';
 
 /**
  * WorkoutsPage Component
@@ -37,16 +41,22 @@ export default function WorkoutsPage() {
     loading: exerciseLoading,
     addExercise,
     removeExercise,
+    updateExerciseData,
   } = useExercise();
-  const { workouts, loading: workoutLoading, addWorkout, removeWorkout } = useWorkout();
+  const { workouts, loading: workoutLoading, addWorkout, removeWorkout, updateWorkoutData } = useWorkout();
 
-  const [activeTab, setActiveTab] = useState<'exercises' | 'workouts'>('exercises');
+  const [activeTab, setActiveTab] = useState<'exercises' | 'workouts'>('workouts');
   const [isCreateExerciseModalOpen, setIsCreateExerciseModalOpen] = useState(false);
+  const [isDetailExerciseModalOpen, setIsDetailExerciseModalOpen] = useState(false);
+  const [selectedExercise, setSelectedExercise] = useState<Exercise | null>(null);
   const [isCreateWorkoutModalOpen, setIsCreateWorkoutModalOpen] = useState(false);
+  const [isEditWorkoutModalOpen, setIsEditWorkoutModalOpen] = useState(false);
+  const [selectedWorkout, setSelectedWorkout] = useState<Workout | null>(null);
   const [selectedMuscleGroup, setSelectedMuscleGroup] = useState<string | null>(null);
   const [isSeedingExercises, setIsSeedingExercises] = useState(false);
   const [isLoadingSamples, setIsLoadingSamples] = useState(false);
   const [isLoadingSampleWorkouts, setIsLoadingSampleWorkouts] = useState(false);
+  const [isEditExerciseModalOpen, setIsEditExerciseModalOpen] = useState(false);
 
   const handleLogout = async () => {
     try {
@@ -54,6 +64,36 @@ export default function WorkoutsPage() {
     } catch (error) {
       console.error('Logout failed:', error);
     }
+  };
+
+  const handleEditWorkout = (workout: Workout) => {
+    setSelectedWorkout(workout);
+    setIsEditWorkoutModalOpen(true);
+  };
+
+  const handleWorkoutUpdated = async (workoutId: string, workoutData: Partial<Workout>) => {
+    try {
+      await updateWorkoutData(workoutId, workoutData);
+      setIsEditWorkoutModalOpen(false);
+      setSelectedWorkout(null);
+    } catch (error) {
+      console.error('Failed to update workout:', error);
+    }
+  };
+
+  const handleViewWorkoutDetail = (workout: Workout) => {
+    setSelectedWorkout(workout);
+    setIsEditWorkoutModalOpen(true);
+  };
+
+  const handleViewExerciseDetail = (exercise: Exercise) => {
+    setSelectedExercise(exercise);
+    setIsDetailExerciseModalOpen(true);
+  };
+
+  const handleEditExercise = (exercise: Exercise) => {
+    setSelectedExercise(exercise);
+    setIsEditExerciseModalOpen(true);
   };
 
   const handleAddSamples = async () => {
@@ -361,19 +401,6 @@ export default function WorkoutsPage() {
         <div className="bg-slate-800 border-b border-slate-700">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex gap-8">
             <button
-              onClick={() => setActiveTab('exercises')}
-              className={`py-4 px-2 font-medium border-b-2 transition ${
-                activeTab === 'exercises'
-                  ? 'border-green-500 text-green-400'
-                  : 'border-transparent text-slate-400 hover:text-slate-300'
-              }`}
-            >
-              <div className="flex items-center gap-2">
-                <Dumbbell className="w-5 h-5" />
-                Exercises ({exercises.length})
-              </div>
-            </button>
-            <button
               onClick={() => setActiveTab('workouts')}
               className={`py-4 px-2 font-medium border-b-2 transition ${
                 activeTab === 'workouts'
@@ -384,6 +411,19 @@ export default function WorkoutsPage() {
               <div className="flex items-center gap-2">
                 <Zap className="w-5 h-5" />
                 Workouts ({workouts.length})
+              </div>
+            </button>
+            <button
+              onClick={() => setActiveTab('exercises')}
+              className={`py-4 px-2 font-medium border-b-2 transition ${
+                activeTab === 'exercises'
+                  ? 'border-green-500 text-green-400'
+                  : 'border-transparent text-slate-400 hover:text-slate-300'
+              }`}
+            >
+              <div className="flex items-center gap-2">
+                <Dumbbell className="w-5 h-5" />
+                Exercises ({exercises.length})
               </div>
             </button>
           </div>
@@ -477,7 +517,7 @@ export default function WorkoutsPage() {
                     <ExerciseCard
                       key={exercise.id}
                       exercise={exercise}
-                      onDelete={() => removeExercise(exercise.id)}
+                      onViewDetail={handleEditExercise}
                     />
                   ))}
                 </div>
@@ -546,7 +586,7 @@ export default function WorkoutsPage() {
                     <WorkoutCard
                       key={workout.id}
                       workout={workout}
-                      onDelete={() => removeWorkout(workout.id)}
+                      onViewDetail={handleViewWorkoutDetail}
                     />
                   ))}
                 </div>
@@ -562,11 +602,54 @@ export default function WorkoutsPage() {
           onExerciseCreated={addExercise}
         />
 
+        {selectedExercise && (
+          <EditExerciseModal
+            isOpen={isEditExerciseModalOpen}
+            exercise={selectedExercise}
+            onClose={() => {
+              setIsEditExerciseModalOpen(false);
+              setSelectedExercise(null);
+            }}
+            onExerciseUpdated={updateExerciseData}
+            onDelete={removeExercise}
+          />
+        )}
+
         <CreateWorkoutModal
           isOpen={isCreateWorkoutModalOpen}
           onClose={() => setIsCreateWorkoutModalOpen(false)}
           onWorkoutCreated={addWorkout}
           exercises={exercises}
+        />
+
+        {/* Edit Workout Modal */}
+        {selectedWorkout && (
+          <EditWorkoutModal
+            isOpen={isEditWorkoutModalOpen}
+            workout={selectedWorkout}
+            onClose={() => {
+              setIsEditWorkoutModalOpen(false);
+              setSelectedWorkout(null);
+            }}
+            onWorkoutUpdated={handleWorkoutUpdated}
+            onDelete={removeWorkout}
+            exercises={exercises}
+          />
+        )}
+
+        <ExerciseDetailModal
+          isOpen={isDetailExerciseModalOpen}
+          exercise={selectedExercise}
+          onClose={() => {
+            setIsDetailExerciseModalOpen(false);
+            setSelectedExercise(null);
+          }}
+          onEdit={(exercise) => {
+            setSelectedExercise(exercise);
+            setIsDetailExerciseModalOpen(false);
+            setIsEditExerciseModalOpen(true);
+          }}
+          onDelete={removeExercise}
         />
       </div>
     </ProtectedRoute>
